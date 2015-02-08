@@ -1,0 +1,14 @@
+<?php
+
+
+namespace F\data\<%= namespace %>;
+
+
+use F\ACollection;
+
+class <%= classname %>Collection extends ACollection {
+
+    public function __construct() {
+        parent::__construct('<%= namespace %>\<%= classname %>', '<%= tablename %>');
+    }
+} 

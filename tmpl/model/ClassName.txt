@@ -1,0 +1,21 @@
+<?php
+
+namespace F\data\<%= namespace %>;
+
+
+use F\AModel;
+
+class <%= classname %> extends AModel {
+    <% _.each(fields, function(field) { %>
+    /**
+     * <%= field.libelle %>
+     * @dbFieldInfo field=<%= field.field %>,libelle=<%= field.libelle %>,type=<%= field.type %>,required=<%= field.required %>
+     * @var <%= field.vartype %>
+     */
+    public $<%= field.field %>;
+    <% }); %>
+
+    public function __construct($mainfieldval = 0, $load=true, $table='<%= tablename %>', $mainfield='<%= id_field %>') {
+        return parent::__construct($mainfieldval,$load, $table, $mainfield);
+    }
+} 

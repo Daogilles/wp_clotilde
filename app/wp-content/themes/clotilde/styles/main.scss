@@ -1,0 +1,24 @@
+@import "_reset";
+@import "_variables";
+@import "_fonts";
+@import "_loader";
+@import "_ui";
+@import "_header";
+@import "_home";
+@import "_gallery";
+@import "_category";
+@import "_services";
+@import "_contact";
+
+
+@media screen and (max-width: 960px) {
+	@import "_max960";
+}
+@media screen and (max-width: 1024px) {
+	.wrapper {
+		max-width: 960px;
+	}
+}
+@media screen and (max-width: 768px) {
+	@import "_max768";
+}

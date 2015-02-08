@@ -1,0 +1,106 @@
+.category{
+	height: 350px;
+	overflow: hidden;
+	position: relative;
+	width: 100%;
+	// .category-content{
+	// 	display: block;
+	// 	height: 100%;
+	// 	width: 100%;
+	// 	margin: 0 auto;
+	// 	position: relative;
+	// 	max-width: 1100px;
+		
+	// }
+	.category-content-bg, .category-content-bg-visible{
+			display: block;
+			height: 100%;
+			position: absolute;
+			width: 100%;
+		}
+		.category-content-bg{
+			opacity: 1;
+			z-index: 1;
+		}
+		.category-content-bg-visible{
+			opacity: 0;
+			z-index: 9;
+		}	
+	#beauty .category-content-bg{
+		background: url(../img/bg-cat-beauty-black.png) left center no-repeat;
+	}
+	#beauty .category-content-bg-visible{
+		background: url(../img/bg-cat-beauty.png) left center no-repeat;
+	}
+	#fashion .category-content-bg{
+		background: url(../img/bg-fashion-black.png) right center no-repeat;
+	}
+	#fashion .category-content-bg-visible{
+		background: url(../img/bg-fashion.png) right center no-repeat;
+	}
+	#bodyart .category-content-bg{
+		background: url(../img/bg-body-black.png) right center no-repeat;
+	}
+	#bodyart .category-content-bg-visible{
+		background: url(../img/bg-body.png) right center no-repeat;
+	}
+	#services .category-content-bg{
+		background: url(../img/bg-services-black.png) left center no-repeat;
+	}
+	#services .category-content-bg-visible{
+		background: url(../img/bg-services.png) left center no-repeat;
+	}
+	.fright{
+		height: 80px;
+		margin-top: -40px;
+		position: absolute;
+		right: 0;
+		top: 50%;
+		z-index: 10;
+	}
+	.fleft{
+		height: 80px;
+		margin-top: -40px;
+		position: absolute;
+		left: 0;
+		top: 50%;
+		z-index: 10;
+	}
+	h1{
+		font-size: 42px;
+		letter-spacing: 25px;
+		margin-bottom: 10px;
+		text-transform: uppercase;
+	}
+	a{
+		color: black;
+		text-decoration:none;
+	}
+	#beauty.category-content{
+		
+	}
+
+
+}
+.beauty.category{
+	background-color: #d9d9d9;
+	border-top: 2px solid black;
+}
+.fashion.category{
+	background-color: #b5b4b7;
+}
+.bodyart.category {
+	background-color: #ecefeb;
+}
+.services.category {
+	background-color: #f0e2d7;
+}
+
+.mobile {
+	.category {
+		h1 {
+			font-size: 20px;
+			letter-spacing: 15px;
+		}
+	}
+}

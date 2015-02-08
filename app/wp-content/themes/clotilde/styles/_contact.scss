@@ -1,0 +1,94 @@
+#contact{
+	#contact-wrapper{
+		border-top: 2px solid black;
+		border-bottom: 2px solid black;
+		height: calc(100% - 4px);
+		margin: 0 auto;
+		max-width: 1100px;
+		h1, h2{
+			text-align: center;
+		}
+		// h1{
+		// 	font-size: 36px;
+		// 	margin-top: 20px;
+		// }
+		h2{
+			font-size: 26px;
+			letter-spacing: 10px;
+			margin-top: 50px;
+		}
+		.column{
+			float: left;
+			margin-top: 20px;
+
+			width: 45%;
+			h3{
+				font-size: 20px;
+				text-transform: uppercase;
+			}
+			img{
+				margin: 10px 0;
+			}
+			#texte{
+				p{
+					font-size: 14px;
+				}
+			}
+		}
+		.column.fleft{
+			border-right: 1px solid #c9cac9;
+			padding-right: 45px;
+			text-align: right;
+		}
+		.column.fright{
+			padding-left: 45px;
+			.input{
+				width: 100%;
+				input{
+					border: 1px solid black;
+					font: 15px "Futura W01 Light";
+					height: 50px;
+					margin: 10px 0;
+					padding-left: 15px;
+					text-transform: uppercase;
+					width: 60%;
+				}
+				textarea{
+					border: 1px solid black;
+					font: 15px "Futura W01 Light";
+					padding-left: 15px;
+					padding-top: 15px;
+					margin: 10px 0;
+					text-transform: uppercase;
+					width: 60%;
+				}
+			}
+			#submit{
+				background: transparent;
+				border: 1px solid black;
+				height: 50px;
+				margin-top: 0;
+				width: 100px;
+			}
+			#submit:hover{
+				background: black;
+				color: white;
+				cursor: pointer;
+			}
+		}
+	}
+}
+#contact-mobile {
+	display: none;
+}
+.mobile {
+	#contact {
+		display: none;
+	}
+	#contact-mobile {
+		display: block;
+		padding: 20px;
+		position: relative;
+		top: 50px;
+	}
+}

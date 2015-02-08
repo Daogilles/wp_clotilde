@@ -1,0 +1,46 @@
+#loader {
+  position: fixed;
+  z-index: 9998;
+  display: block;
+  width: 100%;
+  height: 100%;
+  visibility: hidden;
+  opacity: 0;
+  background: white;
+  overflow: hidden;
+  top: 0;
+  @include transition(opacity 0.3s linear 0s, visibility 0s linear 0.3s);
+  &.show {
+    opacity: 1;
+    @include transition(opacity 0.3s linear 0s, visibility 0s linear 0s);
+    visibility: visible;
+  }
+  #loader-pos{
+    height: 100px;
+    position: relative;
+    top: 50%;
+    text-align: center;
+    text-transform: uppercase;
+    font-size: 100px;
+    margin: -50px auto 0;
+  }
+  #loader-mask{
+    background: white;
+    height: 100%;
+    position: absolute;
+    z-index: 999;
+  }
+  #loader-content{
+    color: black;
+    position: absolute;
+    height: 100%;
+    overflow: hidden;
+  }
+}
+.mobile {
+  #loader {
+    #loader-pos {
+      font-size: 40px;
+    }
+  }
+}

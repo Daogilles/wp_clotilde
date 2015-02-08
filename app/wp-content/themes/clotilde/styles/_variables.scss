@@ -1,0 +1,56 @@
+// FONTS
+$futura-light: "Futura W01 Light";
+
+@mixin borderRadius($val) {
+  -webkit-border-radius : $val;
+  -moz-border-radius : $val;
+  -ms-border-radius : $val;
+  border-radius : $val;
+}
+
+@mixin transition($transition, $transition2: false) {
+  -webkit-transition: $transition, $transition2;
+  -moz-transition: $transition, $transition2;
+  -ms-transition: $transition, $transition2;
+  -o-transition: $transition, $transition2;
+  transition: $transition, $transition2;
+}
+@mixin transitionScroll($val){
+  -webkit-transition: $val;
+  -moz-transition: $val;
+  -ms-transition: $val;
+  -o-transition: $val;
+  transition: $val;
+}
+
+@mixin animation($animation) {
+  -webkit-animation: $animation;
+     -moz-animation: $animation;
+      -ms-animation: $animation;
+       -o-animation: $animation;
+          animation: $animation; 
+}
+
+@mixin transform($transform) {
+  -webkit-transform: $transform;
+  -moz-transform: $transform;
+  -ms-transform: $transform;
+  -o-transform: $transform;
+  transform: $transform;
+}
+
+@mixin calc($property, $expression) {
+  #{$property}: -moz-calc(#{$expression});
+  #{$property}: -webkit-calc(#{$expression});
+  #{$property}: calc(#{$expression});
+}
+
+
+.disable-click {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}

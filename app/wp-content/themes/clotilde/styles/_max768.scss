@@ -1,0 +1,28 @@
+body {
+	.category {
+		.category-content-bg-visible, .category-content-bg {
+			display: none;
+		}
+		.fleft, .fright{
+			position: relative;
+			text-align: center;
+		}
+	}
+	#contact{		
+		#contact-wrapper {
+			border-bottom: none;
+			.column	{
+				margin: 0 auto;
+				width: 80%;
+				&.fleft{
+					border-right: none;
+					padding:45px;
+					text-align: left;
+				}
+				&.fright{
+					padding-top: 45px;
+				}
+			}
+		}
+	} 
+}
