@@ -51,6 +51,7 @@ $images = get_field('images');
 			<?php if (!empty($highlight)){ ?>
 			<div id="highlight" class="scroll" style="background:url('<?php echo $highlight['url']; ?>') center center no-repeat;z-index:10;">
 				<img src="<?php echo $highlight['url']; ?>" />
+				<a href="#" class="arrow"></a>
 			</div>
 			<?php } ?>
 			<?php foreach ($images as $key => $img) { ?>
@@ -60,6 +61,7 @@ $images = get_field('images');
 					</div>
 				<!-- </div> -->
 			<?php } ?>
+
 		</div>
 	</div><!-- #primary -->
 

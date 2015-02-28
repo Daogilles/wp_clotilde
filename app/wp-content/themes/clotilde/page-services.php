@@ -62,22 +62,21 @@ $highlight = get_field('highlight');
 			foreach ($contenu as $key => $content) { ?>
 				<div class="ligne scroll" style="z-index:<?php echo ($key+2) * 10; ?>;">
 					<div class="services-img-wrap">
-				<?php foreach ($content['gallerie'] as $img) { ?>
-					<div class="services-img" style="background:url('<?php echo $img['url']; ?>') center center no-repeat;background-size:cover;">
-						<img src="<?php echo $img['url'];?>" alt="<?php echo $img['description'];?>" />
-					</div>
-				<?php } ?>
+						<div class="services-img" style="background:url('<?php echo $content['gallerie']['url']; ?>') center center no-repeat;background-size:cover;">
+							<img src="<?php echo $content['gallerie']['url'];?>" alt="<?php echo $content['gallerie']['description'];?>" />
+						</div>
 					</div>
 					<div class="services-descr">
-						<h2><?php echo $content['titre'];?></h2>
-						<p><?php echo $content['texte'];?></p>
+						<div class="services-descr-wrapper">
+							<h2><?php echo $content['titre'];?></h2>
+							<p><?php echo $content['texte'];?></p>
+						</div>
 					</div>
 				</div>
-				<!-- <div class="clear"></div> -->
 			<?php } ?>
-
+			<a href="#" class="arrow"></a>
 		</div>
-	</div><!-- #pagename -->
+	</div>
 
 	<div id="services-mobile">
 		<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut quis ligula vel turpis ornare rutrum. Donec mi ex, condimentum et lorem id, malesuada ullamcorper leo. Phasellus fringilla tempus maximus. Nulla semper dapibus ipsum sagittis egestas. Fusce efficitur velit id consectetur molestie. Sed quis nibh ultricies, imperdiet orci non, accumsan eros. Ut consectetur fringilla libero at mattis. Aenean ut justo vel lacus porta dictum molestie vitae nisi. In hac habitasse platea dictumst. Donec et felis sit amet purus vulputate porta nec quis nulla. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.</p>

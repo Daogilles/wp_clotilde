@@ -195,6 +195,7 @@
                 // $('#pagination').css({height:(paginationLength*80)+'px', marginTop: -(paginationLength*80/2) })
                 
                 if(loaderText == 'beauty' || loaderText == 'fashion' || loaderText == 'celebrities' || loaderText == 'body-art' || loaderText == 'services'){
+
                     if(!scope.scrollInit){
                         scope.initScroll();
                     }else{

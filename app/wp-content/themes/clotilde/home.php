@@ -5,6 +5,7 @@ get_header(); ?>
     <div id="home" class="full-vertical">
         <h1>Clotilde Sourisseau</h1>
         <h2>Make up artist Paris</h2>
+        <a href="#" class="arrow"></a>
     </div>
 
     <div class="beauty category">
@@ -13,7 +14,7 @@ get_header(); ?>
             <div class="category-content-bg-visible"></div>
             <div class="fright">
                 <h1>Beauty</h1>
-                <a href="/beauty">>> Accéder à la galerie <<</a>
+                <a href="/beauty">>> See gallery <<</a>
             </div>
         </div>
     </div>
@@ -24,7 +25,7 @@ get_header(); ?>
             <div class="category-content-bg-visible"></div>
             <div class="fleft">
                 <h1>Fashion</h1>
-                <a href="/fashion">>> Accéder à la galerie <<</a>
+                <a href="/fashion">>> See gallery <<</a>
             </div>
         </div>
     </div>
@@ -35,7 +36,7 @@ get_header(); ?>
             <div class="category-content-bg-visible"></div>
             <div class="fright">
                 <h1>Celebrities</h1>
-                <a href="/celebrities">>> Accéder à la galerie <<</a>
+                <a href="/celebrities">>> See gallery <<</a>
             </div>
         </div>
     </div>
@@ -46,7 +47,7 @@ get_header(); ?>
             <div class="category-content-bg-visible"></div>
             <div class="fleft">
                 <h1>Body-art</h1>
-                <a href="/body-art">>> Accéder à la galerie <<</a>
+                <a href="/body-art">>> See gallery <<</a>
             </div>
         </div>
     </div>
@@ -57,7 +58,7 @@ get_header(); ?>
             <div class="category-content-bg-visible"></div>
             <div class="fright">
                 <h1>Services</h1>
-                <a href="/contact">>> Accéder à la galerie <<</a>
+                <a href="/services">>> See gallery <<</a>
             </div>
         </div>
     </div>

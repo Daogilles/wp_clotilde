@@ -3,15 +3,6 @@
 	overflow: hidden;
 	position: relative;
 	width: 100%;
-	// .category-content{
-	// 	display: block;
-	// 	height: 100%;
-	// 	width: 100%;
-	// 	margin: 0 auto;
-	// 	position: relative;
-	// 	max-width: 1100px;
-		
-	// }
 	.category-content-bg, .category-content-bg-visible{
 			display: block;
 			height: 100%;
@@ -76,11 +67,12 @@
 		color: black;
 		text-decoration:none;
 	}
-	#beauty.category-content{
-		
+	
+	&:hover {
+		a {
+			border-bottom: 1px solid #000;
+		}
 	}
-
-
 }
 .beauty.category{
 	background-color: #d9d9d9;
@@ -93,7 +85,7 @@
 	background-color: #ecefeb;
 }
 .services.category {
-	background-color: #f0e2d7;
+	background-color: #b5b4b7;
 }
 
 .mobile {

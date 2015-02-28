@@ -8,10 +8,7 @@
 		h1, h2{
 			text-align: center;
 		}
-		// h1{
-		// 	font-size: 36px;
-		// 	margin-top: 20px;
-		// }
+		
 		h2{
 			font-size: 26px;
 			letter-spacing: 10px;
@@ -19,9 +16,7 @@
 		}
 		.column{
 			float: left;
-			margin-top: 20px;
 
-			width: 45%;
 			h3{
 				font-size: 20px;
 				text-transform: uppercase;
@@ -36,12 +31,20 @@
 			}
 		}
 		.column.fleft{
-			border-right: 1px solid #c9cac9;
-			padding-right: 45px;
-			text-align: right;
+			text-align: left;
+			width: 60%;
+			.column-wrapper {
+				border-right: 1px solid #c9cac9;
+				padding-right: 45px;
+				margin-top: 20px;
+			}
 		}
 		.column.fright{
-			padding-left: 45px;
+			width: 40%;
+			.column-wrapper {
+				padding-left: 45px;
+				margin-top: 20px;
+			}
 			.input{
 				width: 100%;
 				input{

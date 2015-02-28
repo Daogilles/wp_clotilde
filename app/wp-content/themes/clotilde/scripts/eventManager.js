@@ -226,12 +226,6 @@ CLO.EventManager = function () {
             duration = 0.5,
             duration2 = 0.8;
 
-        // if( !($('html').hasClass('touch')) ){
-        //     if(performAnimation) return;
-        // }
-        // console.log(CLO.$items)
-        // console.log(_item)
-        // console.log(CLO.currentItem)
         if(_item > CLO.currentItem){
             performAnimation = true;
 

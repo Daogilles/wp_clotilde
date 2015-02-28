@@ -18,24 +18,28 @@ $content = get_field('texte');
             <!-- <h1>CONTACT</h1> -->
             <h2><?php echo $title; ?></h2>
             <div class="column fleft">
-                <h3><?php echo $subtitle; ?></h3>
-                <img src="<?php echo get_template_directory_uri(); ?>/img/profil.jpg" />
-                <div id="texte">
-                	<?php echo $content; ?>
+                <div class="column-wrapper">
+                    <h3><?php echo $subtitle; ?></h3>
+                    <img src="<?php echo get_template_directory_uri(); ?>/img/profil.jpg" />
+                    <div id="texte">
+                    	<?php echo $content; ?>
+                    </div>
                 </div>
             </div>
             <div class="column fright">
-                <h3>Contact me</h3>
-                <form id="infoForm" action="<?php echo get_template_directory_uri(); ?>/mail.php" method="post">
-                    <div class="input">
-                        <input type="text" name="nom" id="nom" value="Nom" />
-                        <input type="text" name="email" id="email" value="Email" />
-                        <input type="text" name="objet" id="objet"  value="Objet" />
-                        <textarea name="textarea" name="message" rows="10" cols="50">Message</textarea>
-                    </div>
-                    <br />
-                    <input type="submit" value="ENVOYER" id="submit" class="column"/>
-                </form>
+                <div class="column-wrapper">
+                    <h3>Contact me</h3>
+                    <form id="infoForm" action="<?php echo get_template_directory_uri(); ?>/mail.php" method="post">
+                        <div class="input">
+                            <input type="text" name="nom" id="nom" value="Name" />
+                            <input type="text" name="email" id="email" value="Email" />
+                            <input type="text" name="objet" id="objet"  value="Object" />
+                            <textarea name="textarea" name="message" rows="10" cols="50">Message</textarea>
+                        </div>
+                        <br />
+                        <input type="submit" value="SEND" id="submit" class="column"/>
+                    </form>
+                </div>
             </div>
         </div>
     </div>

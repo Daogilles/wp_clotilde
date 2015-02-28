@@ -15,6 +15,7 @@ $URL_STYLE = get_template_directory_uri().'/styles/';
 \F\AssetManager::getInstance()->addScript(\F\AssetManager::DEFAULT_GROUP_KEY_FOOTER, $URL_SCRIPT.'vendor/greensock/easing/EasePack.min.js');
 \F\AssetManager::getInstance()->addScript(\F\AssetManager::DEFAULT_GROUP_KEY_FOOTER, $URL_SCRIPT.'vendor/greensock/TweenMax.min.js');
 
+
 //classes
 \F\AssetManager::getInstance()->addScript(\F\AssetManager::DEFAULT_GROUP_KEY_FOOTER, $URL_SCRIPT.'classes/Router.js');
 \F\AssetManager::getInstance()->addScript(\F\AssetManager::DEFAULT_GROUP_KEY_FOOTER, $URL_SCRIPT.'classes/NavigationController.js');
