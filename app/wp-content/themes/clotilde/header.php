@@ -89,7 +89,7 @@ if(!isAjax()) {
     <div id="menu_resp">
         <?php wp_nav_menu( array( 'menu' => KEY_MAIN_MENU, 'container' => '' ) ); ?>
     </div>
-    <div id="loader">
+    <div id="loader" class="show">
         <div id="loader-pos">
             <div id="loader-mask"></div>
             <div id="loader-content"></div>

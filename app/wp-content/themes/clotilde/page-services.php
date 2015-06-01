@@ -10,6 +10,17 @@ $pagename = get_query_var('pagename');
 
 $highlight = get_field('highlight');
 
+$type = 'service';
+$args=array(
+	'post_type' 		=> $type,
+	'post_status' 		=> 'publish',
+	'posts_per_page'    => '-1',
+	'order'   			=> 'DESC'
+);
+
+$my_query = null;
+$my_query = new WP_Query($args);    
+
 
 /*	<ol id="pagination">
 		<li class="no-margin item-active">
@@ -36,10 +47,10 @@ $highlight = get_field('highlight');
 		<?php } ?>
 	</ol>
 */
-?>
-	<ol id="pagination">
+
+	/*<ol id="pagination">
 		<?php 
-		$contenu = get_field('contenu');
+		
 		foreach ($contenu as $key => $content) {
 			$index = $key;
 		}
@@ -50,31 +61,47 @@ $highlight = get_field('highlight');
 		}
 		?>
 		<div id="pag_number">1/<?php echo $index; ?></div>
-	</ol>
+	</ol>*/
+?>
 
-	<div id="<?php echo $pagename; ?>-page" class="content-area content-page">
-		<div id="wrapper-inner">
-			<div id="highlight" class="full-vertical-gallery scroll" style="background:url('<?php echo $highlight['url']; ?>') center center no-repeat;background-size:cover;z-index:10;">
-				<img src="<?php echo $highlight['url']; ?>" />
-			</div>
-			<?php 
-			$contenu = get_field('contenu');
-			foreach ($contenu as $key => $content) { ?>
-				<div class="ligne scroll" style="z-index:<?php echo ($key+2) * 10; ?>;">
-					<div class="services-img-wrap">
-						<div class="services-img" style="background:url('<?php echo $content['gallerie']['url']; ?>') center center no-repeat;background-size:cover;">
-							<img src="<?php echo $content['gallerie']['url'];?>" alt="<?php echo $content['gallerie']['description'];?>" />
+	<div id="services-page">
+		<div id="highlight" class="full-vertical" style="background:url('<?php echo $highlight['url']; ?>') center center no-repeat;background-size:cover;z-index:10;">
+			<img src="<?php echo $highlight['url']; ?>" />
+		</div>
+		<a href="#" class="arrow"></a>
+
+		<div class="services-wrapper">
+			<?php if( $my_query->have_posts() ) {
+	  			while ($my_query->have_posts()) : $my_query->the_post(); ?>
+					<div class="service-article">
+						<div class="service-text-wrapper slider-container">
+							<?php
+							$contenu = get_field('contenu');
+							foreach ($contenu as $key => $content) { ?>
+								<div class="<?php if($key == 0){?>active<?php } ?> service-text slider-item item<?php echo $key+1; ?>">
+									<div class="service-text-inner">
+										<h2><?php echo $content['titre']?></h2>
+										<p><?php echo $content['texte']?></p>
+									</div>
+								</div>
+							<?php } ?>
+						</div>
+						<div class="service-img-wrapper">
+							<?php
+							$gallerie = get_field('gallerie');
+							foreach ($gallerie as $key => $img) { ?>
+								<div class="service-img" style="background:url(<?php echo $img['url']; ?>) center center no-repeat;background-size:cover;">
+									<img src="<?php echo $img['url'];?>" alt="<?php echo $img['description'];?>" />
+								</div>
+								
+							<?php } ?>
+
 						</div>
 					</div>
-					<div class="services-descr">
-						<div class="services-descr-wrapper">
-							<h2><?php echo $content['titre'];?></h2>
-							<p><?php echo $content['texte'];?></p>
-						</div>
-					</div>
-				</div>
-			<?php } ?>
-			<a href="#" class="arrow"></a>
+				<?php endwhile;
+			}
+			wp_reset_query();
+			?>
 		</div>
 	</div>
 

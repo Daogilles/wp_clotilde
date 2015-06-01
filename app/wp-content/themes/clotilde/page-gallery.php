@@ -49,7 +49,7 @@ $images = get_field('images');
 	<div id="<?php echo $pagename; ?>-page" class="content-area content-page">
 		<div id="wrapper-inner">
 			<?php if (!empty($highlight)){ ?>
-			<div id="highlight" class="scroll" style="background:url('<?php echo $highlight['url']; ?>') center center no-repeat;z-index:10;">
+			<div id="highlight" class="scroll" style="background:url('<?php echo $highlight['url']; ?>') center center no-repeat;background-size:cover;z-index:10;">
 				<img src="<?php echo $highlight['url']; ?>" />
 				<a href="#" class="arrow"></a>
 			</div>

@@ -194,14 +194,12 @@
                 // var paginationLength = $('#pagination l').length;
                 // $('#pagination').css({height:(paginationLength*80)+'px', marginTop: -(paginationLength*80/2) })
                 
-                if(loaderText == 'beauty' || loaderText == 'fashion' || loaderText == 'celebrities' || loaderText == 'body-art' || loaderText == 'services'){
-
+                // if(loaderText == 'beauty' || loaderText == 'fashion' || loaderText == 'celebrities' || loaderText == 'body-art' || loaderText == 'services'){
+                if(loaderText == 'beauty' || loaderText == 'fashion' || loaderText == 'celebrities' || loaderText == 'body-art'){
                     if(!scope.scrollInit){
                         scope.initScroll();
                     }else{
-                        CLO.$items = $('.scroll').each(function(index) {
-                            index > 0 && TweenMax.set(this, {y : CLO.config.screen.height})
-                        });
+                        
 
                         $('#pagination li').each(function(_index) {
                             $(this).find('a').click(function(e) {
@@ -212,8 +210,12 @@
                             });
                         });
 
-                        CLO.currentItem = 0;
-                        CLO.config.activeItem = 0;
+                        // CLO.$items = $('.scroll').each(function(index) {
+                        //     index > 0 && TweenMax.set(this, {y : CLO.config.screen.height})
+                        // });
+                        // CLO.currentItem = 0;
+                        // CLO.config.activeItem = 0;
+                        scope.eventManager.initialize();
                         TweenLite.set(CLO.$items[0], {display : 'block', scaleX : 1, scaleY : 1, opacity : 1, y : 0});
 
                     }
