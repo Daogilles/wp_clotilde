@@ -220,6 +220,26 @@
 
                     }
                 }
+
+                if(loaderText == 'services') {
+                    $('.service-article:nth-child(odd) .slider-container').slick({
+                        infinite:true,
+                        arrows:false,
+                        autoplay: true,
+                        pauseOnHover: false
+                    });
+                    $('.service-article:nth-child(even) .slider-container').slick({
+                        infinite:true,
+                        arrows:false,
+                        autoplay: true,
+                        pauseOnHover: false
+                    });
+                    // $('.service-article:nth-child(even) .slider-container').bxSlider({
+                    //     infiniteLoop:true,
+                    //     controls:false,
+                    //     auto: true
+                    // });
+                }
                 
                 scope.endLoading();
 

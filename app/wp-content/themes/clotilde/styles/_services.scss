@@ -9,28 +9,27 @@
 	}
 	.service-text-wrapper {
 		height: 100%;
-		left:0;
-		float: left;
-		position: relative;
-		width: 70%;
+		// left:0;
+		// float: left;
+		// position: relative;
+		// width: 70%;
 		.service-text {
 			display: inline-block;
 			height: 350px;
 			line-height: 350px;
-	        position: relative;
-	        opacity: 0;
+	        // opacity: 0;
 	        margin: 0;
 	        padding: 0;
-	        position: absolute;
-	        visibility: hidden;
-	        width: 100%;
-			@include transition(all 400ms ease);
-	        &.active {
-	            opacity: 1;
-	            visibility:visible;
-	            @include transform(scale(1) translateX(0));
-	            @include transition(all 600ms ease);
-	        }
+	  //       position: absolute;
+	  //       visibility: hidden;
+	  //       width: 100%;
+			// @include transition(all 400ms ease);
+	  //       &.active {
+	  //           opacity: 1;
+	  //           visibility:visible;
+	  //           @include transform(scale(1) translateX(0));
+	  //           @include transition(all 600ms ease);
+	  //       }
 	        .service-text-inner {
 	        	display: inline-block;
 	        	line-height: normal;
@@ -40,9 +39,9 @@
 	}
 	.service-img-wrapper {
 		height: 100%;
-		float: right;
-		position: relative;
-		width: 30%;
+		// float: right;
+		// position: relative;
+		// width: 30%;
 		.service-img{
 			height: 100%;
 			position: absolute;
@@ -52,41 +51,41 @@
 			}
 		}
 	}
-	&:nth-child(even) {
-		.service-text-wrapper {
-			float: right
-		}
-		.service-img-wrapper {
+	&:nth-child(odd) {
+		.slider-container {
 			float: left;
+			height: 100%;
+			width: 70%;
+			&:last-child {
+				float: right;
+				width: 30%;
+			}
+		}
+		// .service-text-wrapper {
+		// 	float: right
+		// }
+		// .service-img-wrapper {
+		// 	float: left;
+		// }
+	}
+	&:nth-child(even) {
+		.slider-container {
+			float: right;
+			height: 100%;
+			width: 70%;
+			&:last-child {
+				float: left;
+				width: 30%;
+			}
+		}
+	}
+	.slider-container {
+		.slick-list, .slick-track {
+			height: 100% !important;
 		}
 	}
 }
-.item1 {
-    @include transform(scale(0.8) translateX(-110%));
-    
-}
-.item2 {
-    @include transform(scale(0.8) translateX(110%));
-    &.prev {
-        @include transform(scale(0.8) translateX(-110%));
-    }
-}
-.item3 {
-    &.prev{
-        @include transform(scale(0.8) translateX(-110%));
-    }
-    &.next{
-        @include transform(scale(0.8) translateX(110%));
-    }
-}
-.item4{
-    &.prev{
-        @include transform(scale(0.8) translateX(-110%));
-    }
-    &.next{
-        @include transform(scale(0.8) translateX(110%));
-    }
-}
+
 
 #services-mobile {
 	display: none;

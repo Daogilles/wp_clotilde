@@ -98,6 +98,9 @@ CLO.EventManager = function () {
 
         CLO.currentItem = 0;
         CLO.config.activeItem = 0;
+        
+        /* INIT PAGINATION */
+        $('#pagination div').html('1/'+CLO.config.itemSize);
 
     };
     
@@ -258,7 +261,12 @@ CLO.EventManager = function () {
             // $('#pagination li').removeClass('item-active');
             // $('#pagination li').eq(_item).addClass('item-active');
             var ind = _item + 1;
-            $('#pagination div').html(ind+'/'+CLO.config.itemSize)
+            $('#pagination div').html(ind+'/'+CLO.config.itemSize);
+            if (ind == CLO.config.itemSize) {
+                $('.arrow').fadeOut();
+            }else {
+                $('.arrow').fadeIn();
+            }
             setTimeout(function() {
                 performAnimation = false;
                 // TweenLite.set($block, {display: 'none'});   

@@ -78,7 +78,7 @@ $my_query = new WP_Query($args);
 							<?php
 							$contenu = get_field('contenu');
 							foreach ($contenu as $key => $content) { ?>
-								<div class="<?php if($key == 0){?>active<?php } ?> service-text slider-item item<?php echo $key+1; ?>">
+								<div class="service-text slide">
 									<div class="service-text-inner">
 										<h2><?php echo $content['titre']?></h2>
 										<p><?php echo $content['texte']?></p>
@@ -86,7 +86,7 @@ $my_query = new WP_Query($args);
 								</div>
 							<?php } ?>
 						</div>
-						<div class="service-img-wrapper">
+						<div class="service-img-wrapper slider-container">
 							<?php
 							$gallerie = get_field('gallerie');
 							foreach ($gallerie as $key => $img) { ?>

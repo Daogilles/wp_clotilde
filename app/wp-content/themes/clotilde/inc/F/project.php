@@ -14,6 +14,7 @@ $URL_STYLE = get_template_directory_uri().'/styles/';
 \F\AssetManager::getInstance()->addScript(\F\AssetManager::DEFAULT_GROUP_KEY_FOOTER, $URL_SCRIPT.'vendor/greensock/plugins/CSSPlugin.min.js');
 \F\AssetManager::getInstance()->addScript(\F\AssetManager::DEFAULT_GROUP_KEY_FOOTER, $URL_SCRIPT.'vendor/greensock/easing/EasePack.min.js');
 \F\AssetManager::getInstance()->addScript(\F\AssetManager::DEFAULT_GROUP_KEY_FOOTER, $URL_SCRIPT.'vendor/greensock/TweenMax.min.js');
+\F\AssetManager::getInstance()->addScript(\F\AssetManager::DEFAULT_GROUP_KEY_FOOTER, $URL_SCRIPT.'vendor/slick.min.js');
 
 
 //classes
@@ -25,7 +26,6 @@ $URL_STYLE = get_template_directory_uri().'/styles/';
 
 //different view page type
 //\F\AssetManager::getInstance()->addScript(\F\AssetManager::DEFAULT_GROUP_KEY_FOOTER, $URL_SCRIPT.'classes/models/DefaultPage.js');
-
 \F\AssetManager::getInstance()->addScript(\F\AssetManager::DEFAULT_GROUP_KEY_FOOTER, $URL_SCRIPT.'eventManager.js');
 \F\AssetManager::getInstance()->addScript(\F\AssetManager::DEFAULT_GROUP_KEY_FOOTER, $URL_SCRIPT.'layoutManager.js');
 
