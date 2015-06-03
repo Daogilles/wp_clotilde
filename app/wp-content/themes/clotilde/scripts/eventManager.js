@@ -70,11 +70,11 @@ CLO.EventManager = function () {
                     );
                     
                     // Event for firefox
-                    // $('#wrapper')[0].addEventListener(
-                    //     'DOMMouseScroll',
-                    //     base.onMouseWheelEvent,
-                    //     false
-                    // );
+                    $('.page-item')[0].addEventListener(
+                        'DOMMouseScroll',
+                        base.onMouseWheelEvent,
+                        false
+                    );
                     $('html').on('keydown',function(e){
                         if(e.keyCode == 38) { // up
                             base.scrollContentTo(1);

@@ -77,12 +77,21 @@ $my_query = new WP_Query($args);
 						<div class="service-text-wrapper slider-container">
 							<?php
 							$contenu = get_field('contenu');
+							$len = count($contenu)-1;
 							foreach ($contenu as $key => $content) { ?>
-								<div class="service-text slide">
+								<div class="service-text slide item<?php echo $key+1; if($key == 0){?> active<?php } ?>">
 									<div class="service-text-inner">
-										<h2><?php echo $content['titre']?></h2>
+										<h3><?php echo $content['titre']?></h2>
 										<p><?php echo $content['texte']?></p>
 									</div>
+									<?php if($key == 0){ ?>
+										<span class="service-text-next service-text-arrow" data-next="<?php echo $key+2; ?>"></span>
+									<?php }else if($key == $len) { ?>
+										<span class="service-text-prev service-text-arrow" data-prev="<?php echo $key; ?>"></span>
+									<?php }else{ ?>
+										<span class="service-text-prev service-text-arrow" data-prev="<?php echo $key; ?>"></span>
+										<span class="service-text-next service-text-arrow" data-next="<?php echo $key+2; ?>"></span>
+									<?php } ?>
 								</div>
 							<?php } ?>
 						</div>

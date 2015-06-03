@@ -21,6 +21,8 @@
     display: block;
     margin: 0;
     padding: 0;
+    height: 100%;
+    width: 100%;
 
     &:focus {
         outline: none;
@@ -41,7 +43,7 @@
 }
 
 .slick-track {
-    position: relative;
+    position: absolute;
     left: 0;
     top: 0;
     display: block;

@@ -6,7 +6,8 @@
  *
  * @package clotilde
  */
-
+error_reporting(E_ALL);
+ini_set("display_errors", 1);
 if(!isAjax()) {
 ?><!DOCTYPE html>
 <!--[if lt IE 7]>      <html lang="fr" class="no-js lt-ie9 lt-ie8 lt-ie7 oldie"> <![endif]-->
@@ -64,7 +65,7 @@ if(!isAjax()) {
 </head>
 
 <body <?php body_class(); ?>>
-<div id="header-wrapper" clas="max">
+<div id="header-wrapper" class="max">
 
     <header id="header" class="wrapper" role="banner">
         

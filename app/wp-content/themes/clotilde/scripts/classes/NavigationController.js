@@ -84,6 +84,7 @@
             if(scope.currentPage) {
                 scope.currentPage.view.hide(function() {
                     // var scale = 1;
+                    console.log('start loading')
                     scope.startLoading();                    
                     
                     // TweenLite.to(scope.$wrapper, 0.3, {scaleX : scale, scaleY : scale, ease:Power4.easeIn, onComplete : function() {
@@ -91,11 +92,13 @@
                     // }});
                 });
             } else {
+                console.log('ready next')
                 scope.startLoading();
                 _readyToGoNext();
             }
 
             function _readyToGoNext() {
+                console.log('page.isLoaded  ' + page.isLoaded)
                 if(page.isLoaded) {
                     _pageReady();
                 } else {
@@ -105,6 +108,9 @@
 
             function _loadPage() {
                 page.fetch({
+                    error : function() {
+                        console.log('error')
+                    },
                     success : function() {
                         var className = CLO.PAGES_VIEWS[page.get('pageType')] ? CLO.views[CLO.PAGES_VIEWS[page.get('pageType')]] : CLO.abstract.APageView;
                         var view = new className({
@@ -128,6 +134,7 @@
             }
 
             function preloadImage() {
+                console.log('in preloadImage')
                 var menuRespHeight = $('#menu_resp ul li').height();
                 var windowHeight = $(window).height();
                 $('#menu_resp').css({lineHeight:windowHeight+'px'})
@@ -150,7 +157,7 @@
 
                 var loaded_images = 0;
                 var total_images = img_to_load.length;
-
+                console.log(total_images, img_to_load)
                 if(total_images == img_to_load.length) {
                     if(total_images == 0){
                         TweenLite.to(scope.$loadMask, 1, { marginLeft: '100%', ease : Power4.easeOut, onComplete: function(){
@@ -222,18 +229,20 @@
                 }
 
                 if(loaderText == 'services') {
-                    $('.service-article:nth-child(odd) .slider-container').slick({
+                    $('.service-article .service-img-wrapper.slider-container').slick({
                         infinite:true,
                         arrows:false,
                         autoplay: true,
-                        pauseOnHover: false
+                        pauseOnHover: false,
+                        dots: true,
+                        autoplaySpeed: 8000
                     });
-                    $('.service-article:nth-child(even) .slider-container').slick({
-                        infinite:true,
-                        arrows:false,
-                        autoplay: true,
-                        pauseOnHover: false
-                    });
+                    // $('.service-article:nth-child(even) .slider-container').slick({
+                    //     infinite:true,
+                    //     arrows:false,
+                    //     autoplay: true,
+                    //     pauseOnHover: false
+                    // });
                     // $('.service-article:nth-child(even) .slider-container').bxSlider({
                     //     infiniteLoop:true,
                     //     controls:false,
