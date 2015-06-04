@@ -14,7 +14,7 @@ get_header(); ?>
             <div class="category-content-bg-visible"></div>
             <div class="fright">
                 <h1>Beauty</h1>
-                <a href="/beauty">>> See gallery </a>
+                <a href="/beauty"> See gallery </a>
             </div>
         </div>
     </div>
@@ -25,7 +25,7 @@ get_header(); ?>
             <div class="category-content-bg-visible"></div>
             <div class="fleft">
                 <h1>Fashion</h1>
-                <a href="/fashion">>> See gallery </a>
+                <a href="/fashion"> See gallery </a>
             </div>
         </div>
     </div>
@@ -36,7 +36,7 @@ get_header(); ?>
             <div class="category-content-bg-visible"></div>
             <div class="fright">
                 <h1>Celebrities</h1>
-                <a href="/celebrities">>> See gallery </a>
+                <a href="/celebrities"> See gallery </a>
             </div>
         </div>
     </div>
@@ -47,7 +47,7 @@ get_header(); ?>
             <div class="category-content-bg-visible"></div>
             <div class="fleft">
                 <h1>Body-art</h1>
-                <a href="/body-art">>> See gallery </a>
+                <a href="/body-art"> See gallery </a>
             </div>
         </div>
     </div>
@@ -58,7 +58,7 @@ get_header(); ?>
             <div class="category-content-bg-visible"></div>
             <div class="fright">
                 <h1>Services</h1>
-                <a href="/services">>> See gallery </a>
+                <a href="/services"> See gallery </a>
             </div>
         </div>
     </div>

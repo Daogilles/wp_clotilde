@@ -4,7 +4,15 @@
         wW : $w.width(),
         wH : $w.height()
     };
-
+    if (!window.console) console = {log: function() {}};
+    $.support.cors = true;
+    window.log = function(){
+      log.history = log.history || [];   // store logs to an array for reference
+      log.history.push(arguments);
+      if(this.console){
+        console.log( Array.prototype.slice.call(arguments) );
+      }
+    };
     $w.on('resize', function() {
         CLO._.wW = $w.width();
         CLO._.wH = $w.height();

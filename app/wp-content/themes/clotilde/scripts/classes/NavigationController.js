@@ -84,21 +84,18 @@
             if(scope.currentPage) {
                 scope.currentPage.view.hide(function() {
                     // var scale = 1;
-                    console.log('start loading')
                     scope.startLoading();                    
                     
                     // TweenLite.to(scope.$wrapper, 0.3, {scaleX : scale, scaleY : scale, ease:Power4.easeIn, onComplete : function() {
                     _readyToGoNext();
                     // }});
                 });
-            } else {
-                console.log('ready next')
+            } else {                
                 scope.startLoading();
                 _readyToGoNext();
             }
 
             function _readyToGoNext() {
-                console.log('page.isLoaded  ' + page.isLoaded)
                 if(page.isLoaded) {
                     _pageReady();
                 } else {
@@ -107,10 +104,11 @@
             }
 
             function _loadPage() {
+                
                 page.fetch({
                     error : function() {
-                        console.log('error')
-                    },
+                        console.log('error');
+                    },                
                     success : function() {
                         var className = CLO.PAGES_VIEWS[page.get('pageType')] ? CLO.views[CLO.PAGES_VIEWS[page.get('pageType')]] : CLO.abstract.APageView;
                         var view = new className({
@@ -134,7 +132,7 @@
             }
 
             function preloadImage() {
-                console.log('in preloadImage')
+                
                 var menuRespHeight = $('#menu_resp ul li').height();
                 var windowHeight = $(window).height();
                 $('#menu_resp').css({lineHeight:windowHeight+'px'})
@@ -157,7 +155,7 @@
 
                 var loaded_images = 0;
                 var total_images = img_to_load.length;
-                console.log(total_images, img_to_load)
+                
                 if(total_images == img_to_load.length) {
                     if(total_images == 0){
                         TweenLite.to(scope.$loadMask, 1, { marginLeft: '100%', ease : Power4.easeOut, onComplete: function(){

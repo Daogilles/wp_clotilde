@@ -6,13 +6,13 @@
     var APageModel = Backbone.Model.extend({
         url : '',
         defaults : {
-          'id' : null,
-          'content' : null,
-          'title' : null,
-          'seoTitle' : '',
-          'seoDesc' : '',
-          'bodyClass' : '',
-          'pageType' : '',
+          id : null,
+          content : null,
+          title : null,
+          seoTitle : '',
+          seoDesc : '',
+          bodyClass : '',
+          pageType : '',
           data : []
         },
         isLoaded : false,
@@ -31,8 +31,10 @@
                     scope.isLoaded = true;
                     params.success && params.success();
                 },
-                error : function() {
-
+                error : function(model, xhr, options) {
+                  window.log(model);
+                        window.log(xhr);
+                        window.log(options);
                     scope.isLoading = false;
                     scope.isLoaded = true;
                     params.error && params.error();

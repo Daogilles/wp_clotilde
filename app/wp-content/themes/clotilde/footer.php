@@ -11,8 +11,9 @@ if(isAjax()) {
 
     $json = \F\JSONRenderer::getInstance();
     $json->content = ob_get_contents();
-
+    
     ob_end_clean();
+
     echo json_encode($json->jsonify());
     die();
 
