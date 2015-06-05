@@ -6,6 +6,16 @@
     };
     if (!window.console) console = {log: function() {}};
     $.support.cors = true;
+
+    jQuery.event.special.destroyed = {
+        remove: function(o) {
+        $('.btn-gallery').off();
+          if (o.handler) {
+            o.handler()
+          }
+        }
+      }
+
     window.log = function(){
       log.history = log.history || [];   // store logs to an array for reference
       log.history.push(arguments);

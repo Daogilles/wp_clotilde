@@ -43,6 +43,173 @@ table {
   border-collapse: collapse;
   border-spacing: 0; }
 
+.row {
+  margin-top: 0;
+  margin-left: 0;
+  margin-right: 0;
+  *zoom: 1; }
+  .row:before, .row:after {
+    content: " ";
+    display: table; }
+  .row:after {
+    clear: both; }
+  .row [class*="col-"] {
+    position: relative;
+    float: left;
+    min-height: 1px;
+    padding-left: 0;
+    padding-right: 0; }
+  .row:first-child {
+    margin-top: 0; }
+
+.grid-40 .row {
+  margin-top: 40px;
+  margin-left: -20px;
+  margin-right: -20px;
+  *zoom: 1; }
+  .grid-40 .row:before, .grid-40 .row:after {
+    content: " ";
+    display: table; }
+  .grid-40 .row:after {
+    clear: both; }
+  .grid-40 .row [class*="col-"] {
+    position: relative;
+    float: left;
+    min-height: 1px;
+    padding-left: 20px;
+    padding-right: 20px; }
+  .grid-40 .row:first-child {
+    margin-top: 0; }
+
+.grid-30 .row {
+  margin-top: 30px;
+  margin-left: -15px;
+  margin-right: -15px;
+  *zoom: 1; }
+  .grid-30 .row:before, .grid-30 .row:after {
+    content: " ";
+    display: table; }
+  .grid-30 .row:after {
+    clear: both; }
+  .grid-30 .row [class*="col-"] {
+    position: relative;
+    float: left;
+    min-height: 1px;
+    padding-left: 15px;
+    padding-right: 15px; }
+  .grid-30 .row:first-child {
+    margin-top: 0; }
+
+.grid-20 .row {
+  margin-top: 20px;
+  margin-left: -10px;
+  margin-right: -10px;
+  *zoom: 1; }
+  .grid-20 .row:before, .grid-20 .row:after {
+    content: " ";
+    display: table; }
+  .grid-20 .row:after {
+    clear: both; }
+  .grid-20 .row [class*="col-"] {
+    position: relative;
+    float: left;
+    min-height: 1px;
+    padding-left: 10px;
+    padding-right: 10px; }
+  .grid-20 .row:first-child {
+    margin-top: 0; }
+
+.grid-10 .row {
+  margin-top: 4px;
+  margin-left: -2px;
+  margin-right: -2px;
+  *zoom: 1; }
+  .grid-10 .row:before, .grid-10 .row:after {
+    content: " ";
+    display: table; }
+  .grid-10 .row:after {
+    clear: both; }
+  .grid-10 .row [class*="col-"] {
+    position: relative;
+    float: left;
+    min-height: 1px;
+    padding-left: 2px;
+    padding-right: 2px; }
+  .grid-10 .row:first-child {
+    margin-top: 0; }
+
+.no-gap {
+  margin-top: 0 !important; }
+
+.col-1 {
+  width: 8.33333%; }
+
+.col-2 {
+  width: 16.66667%; }
+
+.col-3 {
+  width: 25%; }
+
+.col-4 {
+  width: 33.33333%; }
+
+.col-5 {
+  width: 41.66667%; }
+
+.col-6 {
+  width: 50%; }
+
+.col-7 {
+  width: 58.33333%; }
+
+.col-8 {
+  width: 66.66667%; }
+
+.col-9 {
+  width: 75%; }
+
+.col-10 {
+  width: 83.33333%; }
+
+.col-11 {
+  width: 91.66667%; }
+
+.col-12 {
+  width: 100%; }
+
+.col-offset-1 {
+  margin-left: 8.33333%; }
+
+.col-offset-2 {
+  margin-left: 16.66667%; }
+
+.col-offset-3 {
+  margin-left: 25%; }
+
+.col-offset-4 {
+  margin-left: 33.33333%; }
+
+.col-offset-5 {
+  margin-left: 41.66667%; }
+
+.col-offset-6 {
+  margin-left: 50%; }
+
+.col-offset-7 {
+  margin-left: 58.33333%; }
+
+.col-offset-8 {
+  margin-left: 66.66667%; }
+
+.col-offset-9 {
+  margin-left: 75%; }
+
+.col-offset-10 {
+  margin-left: 83.33333%; }
+
+.col-offset-11 {
+  margin-left: 91.66667%; }
+
 .disable-click {
   -webkit-touch-callout: none;
   -webkit-user-select: none;
@@ -382,17 +549,50 @@ h3 {
   position: absolute;
   width: 48px; }
 
-#pagination {
-  margin-top: -10px;
+.controls-aside {
+  height: 80px;
+  margin-top: -40px;
   position: absolute;
-  right: 10px;
+  right: 40px;
   top: 50%;
+  width: 40px;
   z-index: 999; }
+
+#pagination {
+  position: relative;
+  top: 0; }
   #pagination div {
     font-family: "Futura W01 Light";
     height: 20px;
     position: relative;
-    width: 60px; }
+    text-align: center; }
+
+.btn-gallery {
+  display: block;
+  height: 25px;
+  margin: 15px auto 0;
+  position: relative;
+  width: 25px; }
+  .btn-gallery .open-gallery {
+    background: url(../img/icn-gallery.png) center center no-repeat;
+    background-size: 100%;
+    cursor: pointer;
+    height: 100%;
+    opacity: 1;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%; }
+    .btn-gallery .open-gallery.state-hover {
+      background: url(../img/icn-gallery-hover.png) center center no-repeat;
+      background-size: 100%;
+      opacity: 0; }
+
+input:focus,
+select:focus,
+textarea:focus,
+button:focus {
+  outline: none; }
 
 #header {
   border-top: 2px solid black;
@@ -534,6 +734,74 @@ h3 {
 
 #highlight img {
   display: none; }
+
+.gallery-wrapper {
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  position: fixed;
+  opacity: 0;
+  visibility: hidden;
+  z-index: 9999;
+  -webkit-transition: all 500ms ease, false;
+  -moz-transition: all 500ms ease, false;
+  -ms-transition: all 500ms ease, false;
+  -o-transition: all 500ms ease, false;
+  transition: all 500ms ease, false; }
+  .gallery-wrapper.show {
+    opacity: 1;
+    visibility: visible;
+    -webkit-transition: all 500ms ease, false;
+    -moz-transition: all 500ms ease, false;
+    -ms-transition: all 500ms ease, false;
+    -o-transition: all 500ms ease, false;
+    transition: all 500ms ease, false; }
+  .gallery-wrapper .gallery-opacity {
+    background-color: #000;
+    left: 0;
+    top: 0;
+    height: 100%;
+    opacity: 0.9;
+    width: 100%;
+    z-index: 9000; }
+  .gallery-wrapper .gallery-container {
+    left: 40px;
+    top: 40px;
+    height: calc(100% - 80px);
+    width: calc(100% - 80px);
+    position: absolute !important;
+    z-index: 9998; }
+
+.close-gallery {
+  background: url(../img/close-gallery.png) center center no-repeat;
+  background-size: 100%;
+  cursor: pointer;
+  display: block;
+  height: 25px;
+  position: absolute;
+  right: 20px;
+  top: 20px;
+  width: 25px;
+  z-index: 99999; }
+
+.gallery-img {
+  position: relative;
+  opacity: 0;
+  visibility: hidden;
+  width: 25%;
+  -webkit-transition: all 500ms ease, false;
+  -moz-transition: all 500ms ease, false;
+  -ms-transition: all 500ms ease, false;
+  -o-transition: all 500ms ease, false;
+  transition: all 500ms ease, false; }
+  .gallery-img.visible {
+    opacity: 1;
+    visibility: visible; }
+  .gallery-img .gallery-img-inner {
+    padding: 10px 5px; }
+    .gallery-img .gallery-img-inner img {
+      max-width: 100%; }
 
 .category {
   height: 350px;
@@ -773,55 +1041,49 @@ h3 {
     font-size: 26px;
     letter-spacing: 10px;
     margin-top: 50px; }
-  #contact #contact-wrapper .column {
-    float: left; }
-    #contact #contact-wrapper .column h3 {
-      font-size: 20px;
-      text-transform: uppercase; }
-    #contact #contact-wrapper .column img {
-      margin: 10px 0; }
-    #contact #contact-wrapper .column #texte p {
-      font-size: 14px; }
-  #contact #contact-wrapper .column.fleft {
-    text-align: left;
-    width: 60%; }
-    #contact #contact-wrapper .column.fleft .column-wrapper {
-      border-right: 1px solid #c9cac9;
-      padding-right: 45px;
-      margin-top: 20px; }
-  #contact #contact-wrapper .column.fright {
-    width: 40%; }
-    #contact #contact-wrapper .column.fright .column-wrapper {
-      padding-left: 45px;
-      margin-top: 20px; }
-    #contact #contact-wrapper .column.fright .input {
-      width: 100%; }
-      #contact #contact-wrapper .column.fright .input input {
-        border: 1px solid black;
-        font: 15px "Futura W01 Light";
-        height: 50px;
-        margin: 10px 0;
-        padding-left: 15px;
-        text-transform: uppercase;
-        width: 60%; }
-      #contact #contact-wrapper .column.fright .input textarea {
-        border: 1px solid black;
-        font: 15px "Futura W01 Light";
-        padding-left: 15px;
-        padding-top: 15px;
-        margin: 10px 0;
-        text-transform: uppercase;
-        width: 60%; }
-    #contact #contact-wrapper .column.fright #submit {
-      background: transparent;
+  #contact #contact-wrapper .column h3 {
+    font-size: 20px;
+    margin-bottom: 20px;
+    text-transform: uppercase; }
+  #contact #contact-wrapper .column img {
+    margin-bottom: 20px; }
+  #contact #contact-wrapper .column #texte p {
+    font-size: 14px; }
+  #contact #contact-wrapper .contact-form .input {
+    padding-right: 50px; }
+    #contact #contact-wrapper .contact-form .input input {
       border: 1px solid black;
+      font: 15px "Futura W01 Light";
       height: 50px;
-      margin-top: 0;
-      width: 100px; }
-    #contact #contact-wrapper .column.fright #submit:hover {
-      background: black;
-      color: white;
-      cursor: pointer; }
+      margin: 10px 0;
+      padding-left: 15px;
+      text-transform: uppercase;
+      width: calc(100% - 15px); }
+      #contact #contact-wrapper .contact-form .input input:first-child {
+        margin-top: 0; }
+    #contact #contact-wrapper .contact-form .input textarea {
+      border: 1px solid black;
+      font: 15px "Futura W01 Light";
+      padding-left: 15px;
+      padding-top: 15px;
+      margin: 10px 0;
+      text-transform: uppercase;
+      width: calc(100% - 15px); }
+  #contact #contact-wrapper .contact-form #submit {
+    background: transparent;
+    border: 1px solid black;
+    height: 50px;
+    margin-top: 0;
+    width: 100px; }
+  #contact #contact-wrapper .contact-form #submit:hover {
+    background: black;
+    color: white;
+    cursor: pointer; }
+  #contact #contact-wrapper .column-wrapper {
+    height: 580px;
+    display: inline-block;
+    vertical-align: middle;
+    line-height: normal; }
 
 #contact-mobile {
   display: none; }

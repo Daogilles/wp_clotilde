@@ -1,0 +1,103 @@
+//
+// Grid system
+// --------------------------------------------------
+
+// Mixins
+// -------------------------
+
+@mixin grid-clearfix() {
+    &:before, &:after {
+        content: " "; // 1
+        display: table; // 2
+    }
+
+    &:after {
+        clear: both;
+    }
+}
+
+@mixin make-row($gutter: $grid-gutter-width) {
+    margin-top: $gutter;
+    margin-left:  ($gutter / -2);
+    margin-right: ($gutter / -2);
+    
+    *zoom: 1;
+    
+    @include grid-clearfix();
+    
+    [class*="col-"] {
+        position: relative;
+        float: left;
+        min-height: 1px;
+        padding-left:  ($gutter / 2);
+        padding-right: ($gutter / 2);
+    }
+
+    &:first-child {
+        margin-top: 0;
+    }
+}
+
+@mixin make-col($columns, $grid-columns) {
+    width: percentage(($columns / $grid-columns));
+}
+
+@mixin make-col-offset($columns, $grid-columns) {
+    margin-left: percentage(($columns / $grid-columns));
+}
+
+// Styles
+// -------------------------
+
+.row {
+    @include make-row(0);
+}
+
+.grid-40 {
+    .row {
+       @include make-row(40px);
+    }
+}
+
+.grid-30 {
+    .row {
+        @include make-row(30px);
+    }
+}
+
+.grid-20 {
+    .row {
+        @include make-row(20px);
+    }
+}
+
+.grid-10 {
+    .row {
+       @include make-row(4px);
+    }
+}
+
+
+// Remove margin top on a specific row
+// -------------------------
+.no-gap {
+    margin-top: 0 !important;
+}
+
+// Column grid 12
+// -------------------------
+
+@for $i from 1 through 12 {
+    .col-#{$i} {
+        @include make-col($i, 12);
+    }
+}
+
+// Offset column grid 12
+// -------------------------
+
+@for $i from 1 through 11 {
+    .col-offset-#{$i} {
+        @include make-col-offset($i, 12);
+    }
+}

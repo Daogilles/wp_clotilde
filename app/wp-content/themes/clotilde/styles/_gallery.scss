@@ -5,3 +5,69 @@
 		// max-width: 100%;
 	}
 }
+
+.gallery-wrapper {
+	left: 0;
+	top: 0;
+	height: 100%;
+	width: 100%;
+	position: fixed;
+	opacity: 0;
+	visibility: hidden;
+	z-index: 9999;
+	@include transition(all 500ms ease);
+	&.show{
+		opacity: 1;
+		visibility: visible;
+		@include transition(all 500ms ease);
+	}
+	.gallery-opacity {
+		background-color: #000;
+		left: 0;
+		top: 0;
+		height: 100%;
+		opacity: 0.9;
+		width: 100%;
+		z-index: 9000;
+
+	}
+	.gallery-container {
+		left: 40px;
+		top: 40px;
+		height: calc(100% - 80px);
+		width: calc(100% - 80px);
+		position: absolute !important;
+		z-index: 9998;
+	}
+}
+
+.close-gallery {
+	background: url(../img/close-gallery.png) center center no-repeat;
+	background-size: 100%;
+	cursor: pointer;
+	display: block;
+	height: 25px;
+	position: absolute;
+	right: 20px;
+	top: 20px;
+	width: 25px;
+	z-index: 99999;
+}
+
+.gallery-img {
+	position: relative;
+	opacity: 0;
+	visibility: hidden;
+	width: 25%;
+	@include transition(all 500ms ease);
+	&.visible {
+		opacity: 1;
+		visibility: visible;
+	}
+	.gallery-img-inner {
+		padding: 10px 5px;
+		img {
+			max-width: 100%;
+		}
+	}
+}

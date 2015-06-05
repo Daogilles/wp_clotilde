@@ -14,19 +14,10 @@ $content = get_field('texte');
 
 ?>
 	<div id="contact" class="full-vertical">
-        <div id="contact-wrapper">
+        <div id="contact-wrapper" class="row">
             <!-- <h1>CONTACT</h1> -->
             <h2><?php echo $title; ?></h2>
-            <div class="column fleft">
-                <div class="column-wrapper">
-                    <h3><?php echo $subtitle; ?></h3>
-                    <img src="<?php echo get_template_directory_uri(); ?>/img/profil.jpg" />
-                    <div id="texte">
-                    	<?php echo $content; ?>
-                    </div>
-                </div>
-            </div>
-            <div class="column fright">
+            <div class="col-5 column contact-form baba">
                 <div class="column-wrapper">
                     <h3>Contact me</h3>
                     <form id="infoForm" action="<?php echo get_template_directory_uri(); ?>/mail.php" method="post">
@@ -37,8 +28,18 @@ $content = get_field('texte');
                             <textarea name="textarea" name="message" rows="10" cols="50">Message</textarea>
                         </div>
                         <br />
-                        <input type="submit" value="SEND" id="submit" class="column"/>
+                        <input type="submit" value="SEND" id="submit" />
                     </form>
+                </div>
+                
+            </div>
+            <div class="col-7 column baba">
+                <div class="column-wrapper">
+                    <h3><?php echo $subtitle; ?></h3>
+                    <img src="<?php echo get_template_directory_uri(); ?>/img/profil.jpg" />
+                    <div id="texte">
+                        <?php echo $content; ?>
+                    </div>
                 </div>
             </div>
         </div>

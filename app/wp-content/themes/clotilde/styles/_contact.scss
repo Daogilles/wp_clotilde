@@ -15,14 +15,14 @@
 			margin-top: 50px;
 		}
 		.column{
-			float: left;
-
+			
 			h3{
 				font-size: 20px;
+				margin-bottom: 20px;
 				text-transform: uppercase;
 			}
 			img{
-				margin: 10px 0;
+				margin-bottom: 20px;
 			}
 			#texte{
 				p{
@@ -30,23 +30,10 @@
 				}
 			}
 		}
-		.column.fleft{
-			text-align: left;
-			width: 60%;
-			.column-wrapper {
-				border-right: 1px solid #c9cac9;
-				padding-right: 45px;
-				margin-top: 20px;
-			}
-		}
-		.column.fright{
-			width: 40%;
-			.column-wrapper {
-				padding-left: 45px;
-				margin-top: 20px;
-			}
+
+		.contact-form{
 			.input{
-				width: 100%;
+				padding-right: 50px;
 				input{
 					border: 1px solid black;
 					font: 15px "Futura W01 Light";
@@ -54,7 +41,10 @@
 					margin: 10px 0;
 					padding-left: 15px;
 					text-transform: uppercase;
-					width: 60%;
+					width: calc(100% - 15px);
+					&:first-child {
+						margin-top: 0;
+					}
 				}
 				textarea{
 					border: 1px solid black;
@@ -63,7 +53,7 @@
 					padding-top: 15px;
 					margin: 10px 0;
 					text-transform: uppercase;
-					width: 60%;
+					width: calc(100% - 15px);
 				}
 			}
 			#submit{
@@ -78,6 +68,12 @@
 				color: white;
 				cursor: pointer;
 			}
+		}
+		.column-wrapper {
+			height: 580px;
+			display: inline-block;
+			vertical-align: middle;
+			line-height: normal;
 		}
 	}
 }

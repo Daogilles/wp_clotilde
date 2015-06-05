@@ -33,18 +33,38 @@ $images = get_field('images');
 		<?php } ?>
 	</ol>*/
 ?>
-	<ol id="pagination">
-		<?php foreach ($images as $key => $img) {
-			$index = $key;
-		}
-		if(!empty($highlight)){
-			$index = $index +2;
-		}else{
-			$index = $index +1;
-		}
-		?>
-		<div id="pag_number">1/<?php echo $index; ?></div>
-	</ol>
+	<div class="controls-aside">
+		<ol id="pagination">
+			<?php foreach ($images as $key => $img) {
+				$index = $key;
+			}
+			if(!empty($highlight)){
+				$index = $index +2;
+			}else{
+				$index = $index +1;
+			}
+			?>
+			<div id="pag_number">1/<?php echo $index; ?></div>
+		</ol>
+		<div class="btn-gallery">
+			<span class="open-gallery"></span>
+			<span class="open-gallery state-hover"></span>
+		</div>		
+	</div>
+	
+	<div class="gallery-wrapper">
+		<div class="gallery-opacity"></div>
+		<span class="close-gallery"></span>
+		<div class="gallery-container">
+			<?php foreach ($images as $key => $img) { ?>
+				<div class="gallery-img">
+					<div class="gallery-img-inner">
+						<img src="<?php echo $img['url']; ?>" alt="" />	
+					</div>					
+				</div>
+			<?php } ?>
+		</div>
+	</div>
 
 	<div id="<?php echo $pagename; ?>-page" class="content-area content-page">
 		<div id="wrapper-inner">

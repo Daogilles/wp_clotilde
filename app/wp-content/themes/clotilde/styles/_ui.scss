@@ -72,62 +72,55 @@ h3{
   	position: absolute;
   	width: 48px;
 }
+.controls-aside{
+	height: 80px;
+	margin-top: -40px;
+	position: absolute;
+	right: 40px;
+	top: 50%;
+	width: 40px;
+	z-index: 999;
+}
 #pagination{
-		margin-top: -10px;
-		position: absolute;
-		right: 10px;
-		top: 50%;
-		z-index: 999;
+	position: relative;
+	top: 0;
 	div{
 		font-family: $futura-light;
 		height: 20px;
 		position: relative;
-		width: 60px;
-		// .pagination-wrapper{
-		// 	border: 1px solid transparent;
-		// 	position: absolute;
-		// 	width: 54px;
-		// 	height: 54px;
-		// 	background-color: rgba(0, 0, 0, 0.1);
-		// 	overflow: hidden;
-		// 	@include transform(rotate(45deg));
-		// 	top: 13px;
-		// 	left: 13px;
-		// 	z-index: 900;
-		// 	.pagination-wrapper-img{
-		// 		height: 80px;
-		// 		position: absolute;
-		// 		left: -12px;
-		// 		top: -12px;
-		// 		width: 80px;
-		// 		@include transform(rotate(-45deg));
-		// 		div{
-		// 			height: 80px;
-		// 			width: 80px;
-		// 		}
-		// 	}
-		// }
-		// .pagination-bg-black{
-		// 	background: black;
-		// 	position: absolute;
-		// 	width: 55px;
-		// 	height: 55px;
-		// 	overflow: hidden;
-		// 	@include transform(rotate(45deg));
-		// 	top: 13px;
-		// 	left: 13px;
-		// 	opacity: 0.6;
-		// 	z-index: 999;
-		// }
-		// &.item-active{
-		// 	.pagination-wrapper{
-		// 		border:1px solid white;
-		// 	}
-		// 	.pagination-bg-black{
-		// 		opacity: 0;
-		// 		@include transition(opacity 0.3s linear 0s);
-		// 	}
-		// }
+		text-align: center;
 	}
 
+}
+.btn-gallery {
+	display: block;
+	height: 25px;
+	margin: 15px auto 0;
+	position: relative;
+	width: 25px;
+	.open-gallery {
+		background: url(../img/icn-gallery.png) center center no-repeat;
+		background-size: 100%;
+		cursor: pointer;
+		height: 100%;
+		opacity: 1;
+		position: absolute;
+		left: 0;
+		top: 0;
+		width: 100%;
+
+		&.state-hover {
+			background: url(../img/icn-gallery-hover.png) center center no-repeat;
+			background-size: 100%;
+			opacity: 0;
+		}
+	}
+}
+
+
+input:focus,
+select:focus,
+textarea:focus,
+button:focus {
+    outline: none;
 }

@@ -75,7 +75,18 @@
             var scope = this;
             if(this.isWorking) return;
             this.isWorking = true;
-            var loaderText = url.replace('/', '');            
+            var loaderText = url.replace('/', '');
+
+            if(loaderText == ''){
+                loaderText = '<img src="'+CLO.CONFIG.THEME_URL+'/img/logo@2x.png" alt="Logo">';
+                $('#loader-content').append(loaderText);
+                $('#loader-pos').css({width: 248})
+                $('#loader-mask').css({width: 248})
+            }else{
+                $('#loader-content').append(loaderText);
+                $('#loader-pos').css({width: $('#loader-content').width()})
+                $('#loader-mask').css({width: $('#loader-content').width()})
+            }          
             // this.$loadContent.css({width:0});
 
             var page = this.pages[url] || new CLO.abstract.APageModel({url : url});
@@ -137,16 +148,7 @@
                 var windowHeight = $(window).height();
                 $('#menu_resp').css({lineHeight:windowHeight+'px'})
                 $('#menu_resp ul li').css({lineHeight:menuRespHeight+'px'})
-                if(loaderText == ''){
-                    loaderText = '<img src="'+CLO.CONFIG.THEME_URL+'/img/logo@2x.png" alt="Logo">';
-                    $('#loader-content').append(loaderText);
-                    $('#loader-pos').css({width: 248})
-                    $('#loader-mask').css({width: 248})
-                }else{
-                    $('#loader-content').append(loaderText);
-                    $('#loader-pos').css({width: $('#loader-content').width()})
-                    $('#loader-mask').css({width: $('#loader-content').width()})
-                }
+                
                 var img_to_load = [];
 
                 page.view.$el.find('img').each(function () {
@@ -168,13 +170,15 @@
                             img.src = img_to_load[i];
                             img.onload = function () {
                                 loaded_images++;
-                                var progress = Math.round(100 * loaded_images / total_images)+'%';
-                                TweenLite.to(scope.$loadMask, 1, { marginLeft: progress, ease : Power4.easeOut, onComplete: function(){
+                                var progress = Math.round(100 * loaded_images / total_images)+'%';                                
+
+                                TweenLite.to(scope.$loadMask, 1.5, { marginLeft: progress, ease : Linear.ease, onComplete: function(){
                                     scope.$loadMask.css({width:0});
                                     if (loaded_images == img_to_load.length ){
                                         imageReady();
                                     } 
                                 } });
+                                
                                 // TweenLite.to(scope.$loadMask, 10, { width: 0, ease : Power4.easeOut, onComplete: function(){
                                     
                                 // }})
@@ -201,11 +205,12 @@
                 
                 // if(loaderText == 'beauty' || loaderText == 'fashion' || loaderText == 'celebrities' || loaderText == 'body-art' || loaderText == 'services'){
                 if(loaderText == 'beauty' || loaderText == 'fashion' || loaderText == 'celebrities' || loaderText == 'body-art'){
+                    
+
                     if(!scope.scrollInit){
                         scope.initScroll();
                     }else{
-                        
-
+                       
                         $('#pagination li').each(function(_index) {
                             $(this).find('a').click(function(e) {
                                 e.preventDefault();
@@ -233,19 +238,15 @@
                         autoplay: true,
                         pauseOnHover: false,
                         dots: true,
-                        autoplaySpeed: 8000
+                        autoplaySpeed: 8000,
+                        lazyLoad: 'progressive'
                     });
-                    // $('.service-article:nth-child(even) .slider-container').slick({
-                    //     infinite:true,
-                    //     arrows:false,
-                    //     autoplay: true,
-                    //     pauseOnHover: false
-                    // });
-                    // $('.service-article:nth-child(even) .slider-container').bxSlider({
-                    //     infiniteLoop:true,
-                    //     controls:false,
-                    //     auto: true
-                    // });
+                }
+                if (loaderText == 'contact') {
+                    TweenMax.set($('.column'), {
+                        'height':($(window).height()-60)+'px',
+                        'line-height': ($(window).height()-60)+'px'
+                    });
                 }
                 
                 scope.endLoading();
