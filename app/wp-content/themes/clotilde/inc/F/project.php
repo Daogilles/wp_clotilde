@@ -11,6 +11,7 @@ $URL_STYLE = get_template_directory_uri().'/styles/';
 //vendor
 \F\AssetManager::getInstance()->addScript(\F\AssetManager::DEFAULT_GROUP_KEY_FOOTER, $URL_SCRIPT.'vendor/lodash.underscore.min.js');
 \F\AssetManager::getInstance()->addScript(\F\AssetManager::DEFAULT_GROUP_KEY_FOOTER, $URL_SCRIPT.'vendor/backbone.min.js');
+\F\AssetManager::getInstance()->addScript(\F\AssetManager::DEFAULT_GROUP_KEY_FOOTER, $URL_SCRIPT.'vendor/Backbone.CrossDomain.js');
 \F\AssetManager::getInstance()->addScript(\F\AssetManager::DEFAULT_GROUP_KEY_FOOTER, $URL_SCRIPT.'vendor/greensock/plugins/CSSPlugin.min.js');
 \F\AssetManager::getInstance()->addScript(\F\AssetManager::DEFAULT_GROUP_KEY_FOOTER, $URL_SCRIPT.'vendor/greensock/easing/EasePack.min.js');
 \F\AssetManager::getInstance()->addScript(\F\AssetManager::DEFAULT_GROUP_KEY_FOOTER, $URL_SCRIPT.'vendor/greensock/TweenMax.min.js');

@@ -1,9 +1,12 @@
 body {
 	.category {
+		height: 200px;
 		.category-content-bg-visible, .category-content-bg {
 			display: none;
 		}
 		.fleft, .fright{
+			height: 50px;
+			margin-top: -25px;
 			position: relative;
 			text-align: center;
 		}
@@ -11,17 +14,24 @@ body {
 	#contact{		
 		#contact-wrapper {
 			border-bottom: none;
-			.column	{
-				margin: 0 auto;
-				width: 80%;
-				&.fleft{
-					border-right: none;
-					padding:45px;
-					text-align: left;
+			.contact-form {
+				h3 {
+					padding-left: 20px;
+					padding-right: 30px;
 				}
-				&.fright{
-					padding-top: 45px;
+				#infoForm {
+					padding-left: 20px;
+					padding-right: 30px;
 				}
+				.input {					
+					padding-right: 30px;
+				}
+			}
+			.contact-infos {
+				.column-wrapper {
+					padding-right: 20px;	
+				}
+				
 			}
 		}
 	} 

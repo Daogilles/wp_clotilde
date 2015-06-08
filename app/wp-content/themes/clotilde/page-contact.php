@@ -17,7 +17,7 @@ $content = get_field('texte');
         <div id="contact-wrapper" class="row">
             <!-- <h1>CONTACT</h1> -->
             <h2><?php echo $title; ?></h2>
-            <div class="col-5 column contact-form baba">
+            <div class="col-5 column contact-form">
                 <div class="column-wrapper">
                     <h3>Contact me</h3>
                     <form id="infoForm" action="<?php echo get_template_directory_uri(); ?>/mail.php" method="post">
@@ -33,7 +33,7 @@ $content = get_field('texte');
                 </div>
                 
             </div>
-            <div class="col-7 column baba">
+            <div class="col-7 column contact-infos">
                 <div class="column-wrapper">
                     <h3><?php echo $subtitle; ?></h3>
                     <img src="<?php echo get_template_directory_uri(); ?>/img/profil.jpg" />

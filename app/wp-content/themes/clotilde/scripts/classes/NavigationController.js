@@ -117,8 +117,10 @@
             function _loadPage() {
                 
                 page.fetch({
-                    error : function() {
-                        console.log('error');
+                    error : function(model, xhr, options) {
+                        window.log(model);
+                        window.log(xhr);
+                        window.log(options);
                     },                
                     success : function() {
                         var className = CLO.PAGES_VIEWS[page.get('pageType')] ? CLO.views[CLO.PAGES_VIEWS[page.get('pageType')]] : CLO.abstract.APageView;

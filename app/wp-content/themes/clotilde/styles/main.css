@@ -744,11 +744,11 @@ button:focus {
   opacity: 0;
   visibility: hidden;
   z-index: 9999;
-  -webkit-transition: all 500ms ease, false;
-  -moz-transition: all 500ms ease, false;
-  -ms-transition: all 500ms ease, false;
-  -o-transition: all 500ms ease, false;
-  transition: all 500ms ease, false; }
+  -webkit-transition: all 300ms ease, false;
+  -moz-transition: all 300ms ease, false;
+  -ms-transition: all 300ms ease, false;
+  -o-transition: all 300ms ease, false;
+  transition: all 300ms ease, false; }
   .gallery-wrapper.show {
     opacity: 1;
     visibility: visible;
@@ -768,8 +768,9 @@ button:focus {
   .gallery-wrapper .gallery-container {
     left: 40px;
     top: 40px;
-    height: calc(100% - 80px);
+    height: calc(100% - 80px) !important;
     width: calc(100% - 80px);
+    overflow: scroll;
     position: absolute !important;
     z-index: 9998; }
 
@@ -786,6 +787,7 @@ button:focus {
   z-index: 99999; }
 
 .gallery-img {
+  cursor: pointer;
   position: relative;
   opacity: 0;
   visibility: hidden;
@@ -1109,21 +1111,26 @@ button:focus {
   .wrapper {
     max-width: 960px; } }
 @media screen and (max-width: 768px) {
-  body .category .category-content-bg-visible, body .category .category-content-bg {
-    display: none; }
-  body .category .fleft, body .category .fright {
-    position: relative;
-    text-align: center; }
+  body .category {
+    height: 200px; }
+    body .category .category-content-bg-visible, body .category .category-content-bg {
+      display: none; }
+    body .category .fleft, body .category .fright {
+      height: 50px;
+      margin-top: -25px;
+      position: relative;
+      text-align: center; }
   body #contact #contact-wrapper {
     border-bottom: none; }
-    body #contact #contact-wrapper .column {
-      margin: 0 auto;
-      width: 80%; }
-      body #contact #contact-wrapper .column.fleft {
-        border-right: none;
-        padding: 45px;
-        text-align: left; }
-      body #contact #contact-wrapper .column.fright {
-        padding-top: 45px; } }
+    body #contact #contact-wrapper .contact-form h3 {
+      padding-left: 20px;
+      padding-right: 30px; }
+    body #contact #contact-wrapper .contact-form #infoForm {
+      padding-left: 20px;
+      padding-right: 30px; }
+    body #contact #contact-wrapper .contact-form .input {
+      padding-right: 30px; }
+    body #contact #contact-wrapper .contact-infos .column-wrapper {
+      padding-right: 20px; } }
 
 /*# sourceMappingURL=main.css.map */

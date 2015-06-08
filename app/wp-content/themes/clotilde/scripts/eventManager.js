@@ -117,15 +117,29 @@ CLO.EventManager = function () {
             return false;
         });
 
-        // $('#pagination li').each(function(_index) {
-        //     $(this).find('a').click(function(e) {
-        //         e.preventDefault();
-        //         CLO.config.activeItem = _index;
-        //         console.log(_index);
-        //         base.animateContent( _index );
-        //         return false;
-        //     });
-        // });
+        $('.gallery-img').each(function(_index) {
+            $(this).on('click touchstart', function(e) {
+                e.preventDefault();
+                CLO.config.activeItem = _index+1;
+
+                setTimeout(function(){
+                    var length = $('.gallery-img').length;
+                        for (var i = 1; i <= length; i++) {
+                            setTimeout(function(x) {
+                                return function() { 
+                                    $('.gallery-img:nth-child('+x+')').removeClass('visible');
+                                    if (x == length) {
+                                        $('.gallery-wrapper').removeClass('show');
+                                        base.animateContent( _index +1 );                        
+                                    }
+                                };                         
+                            }(i), i*100);
+                        };
+                },300);
+                
+                return false;
+            });
+        });
     }
     
 
@@ -194,41 +208,42 @@ CLO.EventManager = function () {
         if (performAnimation) {
             return;
         }
+        if (!($('.gallery-wrapper').hasClass('show'))) { /* Check if gallery open */
+            switch (_direction) {
+                // move up
+                case 1:
+                    if (CLO.config.activeItem === 0) {
+                        performAnimation = false;
+                        return;
+                    }
 
-        switch (_direction) {
-            // move up
-            case 1:
-                if (CLO.config.activeItem === 0) {
-                    performAnimation = false;
-                    return;
-                }
+                    CLO.config.activeItem --;
+                    break;
+                // move down
+                case -1:
+                    if (CLO.config.activeItem === (CLO.config.itemSize - 1)) {
+                        performAnimation = false;
+                        return;
+                    }
+                    CLO.config.activeItem ++;
+                    break;
 
-                CLO.config.activeItem --;
-                break;
-            // move down
-            case -1:
-                if (CLO.config.activeItem === (CLO.config.itemSize - 1)) {
-                    performAnimation = false;
-                    return;
-                }
-                CLO.config.activeItem ++;
-                break;
+                default:
+                    break;
+            }
 
-            default:
-                break;
+            this.animateContent(CLO.config.activeItem);
         }
-
-        this.animateContent(CLO.config.activeItem);
     };
 
     /**
      * Defilement du contenu
      */
-    this.animateContent = function (_item) {
+    this.animateContent = function (_item) {       
         var scope = this,
             duration = 0.5,
             duration2 = 0.8;
-
+            
         if(_item > CLO.currentItem){
             performAnimation = true;
 
@@ -255,6 +270,7 @@ CLO.EventManager = function () {
             }, 300);
             
         }
+        
 
         function _finish() {
             CLO.currentItem = _item;

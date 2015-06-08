@@ -15,7 +15,7 @@
 	opacity: 0;
 	visibility: hidden;
 	z-index: 9999;
-	@include transition(all 500ms ease);
+	@include transition(all 300ms ease);
 	&.show{
 		opacity: 1;
 		visibility: visible;
@@ -34,8 +34,9 @@
 	.gallery-container {
 		left: 40px;
 		top: 40px;
-		height: calc(100% - 80px);
+		height: calc(100% - 80px) !important;
 		width: calc(100% - 80px);
+		overflow: scroll;
 		position: absolute !important;
 		z-index: 9998;
 	}
@@ -55,6 +56,7 @@
 }
 
 .gallery-img {
+	cursor: pointer;
 	position: relative;
 	opacity: 0;
 	visibility: hidden;

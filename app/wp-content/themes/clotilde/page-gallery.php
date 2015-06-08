@@ -57,7 +57,7 @@ $images = get_field('images');
 		<span class="close-gallery"></span>
 		<div class="gallery-container">
 			<?php foreach ($images as $key => $img) { ?>
-				<div class="gallery-img">
+				<div class="gallery-img" data-item="<?php echo $key; ?>">
 					<div class="gallery-img-inner">
 						<img src="<?php echo $img['url']; ?>" alt="" />	
 					</div>					

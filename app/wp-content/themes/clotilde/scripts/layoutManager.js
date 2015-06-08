@@ -43,7 +43,6 @@
                 // $menu.append($hover);
 
                 CLO.config.itemSize = $('div.scroll').length;
-                // console.log($('div.scroll').length);
                 CLO.config.activeItem = 0;
 
                 // $('.menu-item:nth-child(1)').addClass('active');

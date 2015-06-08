@@ -32,9 +32,6 @@
                     params.success && params.success();
                 },
                 error : function(model, xhr, options) {
-                  window.log(model);
-                        window.log(xhr);
-                        window.log(options);
                     scope.isLoading = false;
                     scope.isLoaded = true;
                     params.error && params.error();
