@@ -140,7 +140,7 @@
                 document.title = page.get('seoTitle');
                 setTimeout(function() { 
                     scope.$el.html(page.view.$el);
-                    preloadImage();
+                    preloadImage()
                 }, 300);
             }
 
@@ -199,39 +199,39 @@
 
             function imageReady() {
                 $h = $(window).height();
-                $('.full-vertical').css({height: $h-43, position:'relative'});
-                // $('div.scroll').css({lineHeight: $h+'px'});
-                // CLO.config.itemSize = $('div.scroll').length;
-                // // var paginationLength = $('#pagination l').length;
-                // // $('#pagination').css({height:(paginationLength*80)+'px', marginTop: -(paginationLength*80/2) })
+                $('.full-vertical').css({height: $h, position:'relative'});
+                $('div.scroll').css({lineHeight: $h+'px'});
+                CLO.config.itemSize = $('div.scroll').length;
+                // var paginationLength = $('#pagination l').length;
+                // $('#pagination').css({height:(paginationLength*80)+'px', marginTop: -(paginationLength*80/2) })
                 
-                // // if(loaderText == 'beauty' || loaderText == 'fashion' || loaderText == 'celebrities' || loaderText == 'body-art' || loaderText == 'services'){
-                // if(loaderText == 'beauty' || loaderText == 'fashion' || loaderText == 'celebrities' || loaderText == 'body-art'){
+                // if(loaderText == 'beauty' || loaderText == 'fashion' || loaderText == 'celebrities' || loaderText == 'body-art' || loaderText == 'services'){
+                if(loaderText == 'beauty' || loaderText == 'fashion' || loaderText == 'celebrities' || loaderText == 'body-art'){
                     
 
-                //     if(!scope.scrollInit){
-                //         scope.initScroll();
-                //     }else{
+                    if(!scope.scrollInit){
+                        scope.initScroll();
+                    }else{
                        
-                //         $('#pagination li').each(function(_index) {
-                //             $(this).find('a').click(function(e) {
-                //                 e.preventDefault();
-                //                 e.stopPropagation();
-                //                 CLO.config.activeItem = _index;
-                //                 scope.eventManager.animateContent( _index );
-                //             });
-                //         });
+                        $('#pagination li').each(function(_index) {
+                            $(this).find('a').click(function(e) {
+                                e.preventDefault();
+                                e.stopPropagation();
+                                CLO.config.activeItem = _index;
+                                scope.eventManager.animateContent( _index );
+                            });
+                        });
 
-                //         // CLO.$items = $('.scroll').each(function(index) {
-                //         //     index > 0 && TweenMax.set(this, {y : CLO.config.screen.height})
-                //         // });
-                //         // CLO.currentItem = 0;
-                //         // CLO.config.activeItem = 0;
-                //         scope.eventManager.initialize();
-                //         TweenLite.set(CLO.$items[0], {display : 'block', scaleX : 1, scaleY : 1, opacity : 1, y : 0});
+                        // CLO.$items = $('.scroll').each(function(index) {
+                        //     index > 0 && TweenMax.set(this, {y : CLO.config.screen.height})
+                        // });
+                        // CLO.currentItem = 0;
+                        // CLO.config.activeItem = 0;
+                        scope.eventManager.initialize();
+                        TweenLite.set(CLO.$items[0], {display : 'block', scaleX : 1, scaleY : 1, opacity : 1, y : 0});
 
-                //     }
-                // }
+                    }
+                }
 
                 if(loaderText == 'services') {
                     $('.service-article .service-img-wrapper.slider-container').slick({
@@ -255,11 +255,11 @@
 
                 scope.currentPage = page;
                 // scope.$contentPage.show();
-                
-                page.view.show();
-                setTimeout(function() {
-                    scope.isWorking = false;
-                }, 100);
+                page.view.show(function() {
+                    setTimeout(function() {
+                        scope.isWorking = false;
+                    }, 100);
+                });
             }
         }
     });

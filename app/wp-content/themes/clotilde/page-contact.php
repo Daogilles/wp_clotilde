@@ -13,10 +13,10 @@ $subtitle = get_field('subtitle');
 $content = get_field('texte');
 
 ?>
-	<div id="contact" class="full-vertical">
+	<div id="contact">
         <div id="contact-wrapper" class="row">
             <!-- <h1>CONTACT</h1> -->
-            <h2><?php echo $title; ?></h2>
+            <!-- <h2><?php echo $title; ?></h2> -->
             <div class="col-5 column contact-form">
                 <div class="column-wrapper">
                     <h3>Contact me</h3>

@@ -46,6 +46,13 @@
                 $(this).parent().parent().find('.item'+prevPrevStep).addClass('prev');       
             });
     
+        },
+        show : function(){
+            // var $high = document.querySelector('#highlight');
+            // $high.style.height = window.innerHeight+'px';
+            
+            // var $highImg = document.querySelector('#highlight-img');
+            // $highImg.style.marginLeft = -($highImg.offsetWidth/2) +'px';
         }
     });
 })(window);

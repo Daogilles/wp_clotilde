@@ -122,10 +122,8 @@
 
         }
         if(target !== '_blank') {
-
             if(!navigationController.isWorking) {
                 var url = href.replace(CLO.CONFIG.ROOT_URL, '');
-
                 // menuElmt.findByUrl(url);
                 router.navigate(url, {trigger: true});
             }

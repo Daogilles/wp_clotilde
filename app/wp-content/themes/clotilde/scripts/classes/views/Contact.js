@@ -47,13 +47,17 @@
                             scope.$contact.find('#objet').val('Objet');
                             scope.$contact.find('textarea').val('Message');
                             scope.$contact.find('span').fadeOut().remove();
-                        }, 3000)
+                        }, 3000);
                         
                     }else{
                         scope.$contact.append('<span>Veuillez remplir tous les champs.</span>');
                     }
                 }
             })
+        },
+        show : function() {
+            var $high = document.querySelector('#contact');
+            $high.style.height = (window.innerHeight-43)+'px';
         }
     });
 })(window);
