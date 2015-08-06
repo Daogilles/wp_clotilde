@@ -50,14 +50,27 @@
     },
     show : function(callback) {
         var scope = this;
+        var $aRight = document.querySelector('.gallery-arrow-right');
+
         $('.gallery-img-inner').on('click', function(){
             $('body').addClass('full');
+            $('.gallery-zoom').addClass('show'); 
             setTimeout(function(){
-              $('.gallery-zoom').addClass('show');              
-              
-            },100);
+              $('.gallery-zoom-inner').addClass('show');
+            },600);
             scope.slider(parseInt($(this).attr('data-item')));
         });
+
+        $('.gallery-zoom-close').on('click', function(){
+          $('body').removeClass('full');          
+          $('.gallery-zoom-inner').removeClass('show');
+          setTimeout(function(){
+            $('.gallery-zoom').removeClass('show');
+            $('.gallery-zoom-img').removeAttr('style');
+          }, 600);
+        })
+
+        
 
         var $high = document.querySelector('#highlight');
         $high.style.height = window.innerHeight+'px';
@@ -94,28 +107,56 @@
       var imgWidthArray = [];
       var calcTranslate = 0;
 
-      for (var i = 0; i < $imgAll.length; i++) {
-        wTotal += $imgAll[i].offsetWidth + 50;
-        imgWidthArray[i] = $imgAll[i].offsetWidth;
-      };
-      $sliderWrapper.style.width = wTotal + 'px';
-      calcTranslate = imgWidthArray[startSlide]/2;
-      
-      TweenLite.set($sliderWrapper, {x: -(imgWidthArray[startSlide]/2)});
+      document.querySelector('.gallery-zoom-img img[data-item="'+startSlide+'"]').classList.add('active');
 
+      for (var i = 0; i < $imgAll.length; i++) {
+        wTotal += $imgAll[i].offsetWidth + 100;
+        var w = $imgAll[i].offsetWidth;
+        var h = $imgAll[i].offsetHeight;
+        imgWidthArray[i] = w;
+
+        if (w > h) {
+          $imgAll[i].classList.add('landscape');
+        }else {
+          $imgAll[i].classList.add('portrait');          
+        }
+        
+        // calculate position on init
+        if ( i < startSlide+1 ) {
+          console.log(i, startSlide)
+            if ( i == startSlide ) {
+              calcTranslate += w/2;
+            }else {
+              calcTranslate += w + 50;
+            }                 
+        }
+      };
+
+      $sliderWrapper.style.width = wTotal + 'px';
+      console.log(imgWidthArray);      
+      
+      // Display slider to right position in init
+      TweenLite.set($sliderWrapper, {x: -calcTranslate});
+
+      // Check if first/last slide
       if (startSlide != ($imgAll.length-1) ) {
         TweenLite.set($aRight, {x: imgWidthArray[startSlide]/2});
       }      
       if(startSlide != 0) {
         TweenLite.set($aLeft, {x: -(imgWidthArray[startSlide]/2)});  
-      }      
-      console.log(calcTranslate);
+      }            
 
       $aRight.addEventListener('click',function(){
-        calcTranslate += imgWidthArray[parseInt(startSlide)+1]/2;
-        TweenLite.to($sliderWrapper, 0.6, {x: -calcTranslate, ease:Power3.easeOut})
-      });
+          // Select Active
+          var currentSlideItem = document.querySelector('.gallery-zoom-img img.active');
+          var currentSlide = parseInt(currentSlideItem.dataset.item);
+          // CALC = half of active img + half img next + margin
+          calcTranslate += (imgWidthArray[currentSlide]/2) + (imgWidthArray[currentSlide+1]/2) + 50;
 
+          TweenLite.to($sliderWrapper, 0.6, {x: -calcTranslate, ease:Power3.easeOut});
+          currentSlideItem.classList.remove('active');
+          document.querySelector('.gallery-zoom-img img[data-item="'+(currentSlide+1)+'"]').classList.add('active');     
+        });
     }
     });
 })(window);

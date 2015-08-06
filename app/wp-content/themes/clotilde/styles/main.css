@@ -854,26 +854,49 @@ button:focus {
   opacity: 0;
   visibility: hidden;
   z-index: 9999;
-  -webkit-transition: all 600ms ease, false;
-  -moz-transition: all 600ms ease, false;
-  -ms-transition: all 600ms ease, false;
-  -o-transition: all 600ms ease, false;
-  transition: all 600ms ease, false; }
+  -webkit-transition: all 800ms ease, false;
+  -moz-transition: all 800ms ease, false;
+  -ms-transition: all 800ms ease, false;
+  -o-transition: all 800ms ease, false;
+  transition: all 800ms ease, false; }
   .gallery-zoom.show {
     opacity: 1;
     visibility: visible;
-    -webkit-transition: all 1000ms ease, false;
-    -moz-transition: all 1000ms ease, false;
-    -ms-transition: all 1000ms ease, false;
-    -o-transition: all 1000ms ease, false;
-    transition: all 1000ms ease, false; }
+    -webkit-transition: all 800ms ease, false;
+    -moz-transition: all 800ms ease, false;
+    -ms-transition: all 800ms ease, false;
+    -o-transition: all 800ms ease, false;
+    transition: all 800ms ease, false; }
+  .gallery-zoom .gallery-zoom-close {
+    background: url(../img/close.png);
+    cursor: pointer;
+    height: 20px;
+    position: absolute;
+    right: 20px;
+    top: 20px;
+    width: 20px; }
   .gallery-zoom .gallery-zoom-inner {
     height: 60%;
     display: inline-block;
     vertical-align: middle;
     line-height: normal;
     position: relative;
-    width: 100%; }
+    width: 100%;
+    opacity: 0;
+    visibility: hidden;
+    -webkit-transition: all 600ms ease, false;
+    -moz-transition: all 600ms ease, false;
+    -ms-transition: all 600ms ease, false;
+    -o-transition: all 600ms ease, false;
+    transition: all 600ms ease, false; }
+    .gallery-zoom .gallery-zoom-inner.show {
+      opacity: 1;
+      visibility: visible;
+      -webkit-transition: all 800ms ease, false;
+      -moz-transition: all 800ms ease, false;
+      -ms-transition: all 800ms ease, false;
+      -o-transition: all 800ms ease, false;
+      transition: all 800ms ease, false; }
     .gallery-zoom .gallery-zoom-inner .gallery-zoom-img {
       position: absolute;
       top: 0;

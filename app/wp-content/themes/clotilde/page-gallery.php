@@ -30,10 +30,11 @@ $images = get_field('images');
 	</div>
 
 	<div class="gallery-zoom">
+		<div class="gallery-zoom-close"></div>
 		<div class="gallery-zoom-inner">
 			<div class="gallery-zoom-img">
 				<?php foreach ($images as $key => $img) { ?>			
-					<img src="<?php echo $img['url']; ?>" alt="" />	
+					<img src="<?php echo $img['url']; ?>" alt="" data-item="<?php echo $key; ?>" />	
 				<?php } ?>
 			</div>		
 			<div class="gallery-arrow">
