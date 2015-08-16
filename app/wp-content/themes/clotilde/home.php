@@ -9,9 +9,7 @@ get_header(); ?>
     </div>
 
     <div class="beauty category">
-        <div id="beauty" class="wrapper">
-            <div class="category-content-bg"></div>
-            <div class="category-content-bg-visible"></div>
+        <div id="beauty" class="wrapper">            
             <div class="fright">
                 <h1>Beauty</h1>
                 <a href="/beauty"> See gallery </a>
@@ -20,9 +18,7 @@ get_header(); ?>
     </div>
 
     <div class="fashion category">
-        <div id="fashion" class="wrapper">
-            <div class="category-content-bg"></div>
-            <div class="category-content-bg-visible"></div>
+        <div id="fashion" class="wrapper">            
             <div class="fleft">
                 <h1>Fashion</h1>
                 <a href="/fashion"> See gallery </a>
@@ -31,9 +27,7 @@ get_header(); ?>
     </div>
 
     <div class="celebrities category">
-        <div id="celebrities" class="wrapper">
-            <div class="category-content-bg"></div>
-            <div class="category-content-bg-visible"></div>
+        <div id="celebrities" class="wrapper">            
             <div class="fright">
                 <h1>Celebrities</h1>
                 <a href="/celebrities"> See gallery </a>
@@ -42,9 +36,7 @@ get_header(); ?>
     </div>
 
     <div class="bodyart category">
-        <div id="bodyart" class="wrapper">
-            <div class="category-content-bg"></div>
-            <div class="category-content-bg-visible"></div>
+        <div id="bodyart" class="wrapper">           
             <div class="fleft">
                 <h1>Body-art</h1>
                 <a href="/body-art"> See gallery </a>
@@ -53,9 +45,7 @@ get_header(); ?>
     </div>
 
     <div class="services category">
-        <div id="services" class="wrapper">
-            <div class="category-content-bg"></div>
-            <div class="category-content-bg-visible"></div>
+        <div id="services" class="wrapper">            
             <div class="fright">
                 <h1>Services</h1>
                 <a href="/services"> See gallery </a>

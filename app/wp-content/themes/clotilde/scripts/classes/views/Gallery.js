@@ -4,76 +4,41 @@
     w.CLO.views = w.CLO.views || {};
 
     w.CLO.views.Gallery = CLO.abstract.APageView.extend({
-    msnry: null,
-    	// events : {
-     //        'mouseover .btn-gallery' : '_over',
-     //        'mouseout .btn-gallery' : '_out',
-     //        'click .btn-gallery' : '_clickOpen',
-     //        'click .close-gallery' : '_clickClose',
-     //    },
+    msnry: null,    	
     initialize : function(params) {
-        CLO.abstract.APageView.prototype.initialize.call(this, params);
-        // this.$el.on('destroyed', this.removeHandler);
-
-        // $(document).on('mouseover', '.btn-gallery', function(e){
-        //     TweenLite.to($(this).find('.open-gallery.state-hover'), 0.3, {opacity:1, ease:Linear.ease});
-        // });
-
-        // $(document).on('mouseout', '.btn-gallery', function(e){
-        //     TweenLite.to($(this).find('.open-gallery.state-hover'), 0.3, {opacity:0, ease:Linear.ease});
-        // });
-
-        // $(document).on('click touchstart', '.btn-gallery', function(e){            
-        //     $('.gallery-wrapper').addClass('show');
-
-            
-        // });
-
-        // $(document).on('click touchstart', '.close-gallery', function(e){
-        //     setTimeout(function(){
-        //         var length = $('.gallery-img').length;
-        //             for (var i = 1; i <= length; i++) {
-        //                 setTimeout(function(x) {
-        //                     return function() { 
-        //                         $('.gallery-img:nth-child('+x+')').removeClass('visible');
-        //                         if (x == length) {
-        //                           setTimeout(function(){
-        //                               $('.gallery-wrapper').removeClass('show');
-        //                           },100);
-                                    
-        //                         }
-        //                     };                         
-        //                 }(i), i*100);
-        //             };
-        //     },300);
-        // });
+        CLO.abstract.APageView.prototype.initialize.call(this, params);        
     },
     show : function(callback) {
         var scope = this;
         var $aRight = document.querySelector('.gallery-arrow-right');
 
         $('.gallery-img-inner').on('click', function(){
+            var item = parseInt($(this).attr('data-item'));
             $('body').addClass('full');
-            $('.gallery-zoom').addClass('show'); 
-            setTimeout(function(){
-              $('.gallery-zoom-inner').addClass('show');
-            },600);
-            scope.slider(parseInt($(this).attr('data-item')));
+            TweenLite.to($('.gallery-zoom'), 0.6, {
+              opacity: 1,
+              'visibility': 'visible',
+              onComplete:function() {
+                scope.slider(item);       
+              }
+            });
+            
         });
 
         $('.gallery-zoom-close').on('click', function(){
           $('body').removeClass('full');          
           $('.gallery-zoom-inner').removeClass('show');
-          setTimeout(function(){
-            $('.gallery-zoom').removeClass('show');
-            $('.gallery-zoom-img').removeAttr('style');
-          }, 600);
-        })
-
-        
+          TweenLite.to($('.gallery-zoom'), 0.6, {
+            opacity: 0,
+            'visibility': 'hidden',
+            onComplete: function(){
+              $('.gallery-zoom-img').removeAttr('style');
+            }
+          });
+        })        
 
         var $high = document.querySelector('#highlight');
-        $high.style.height = window.innerHeight+'px';
+        $high.style.height = window.innerHeight+2+'px';
         
         var $galZoom = document.querySelector('.gallery-zoom');
         $galZoom.style.lineHeight = window.innerHeight+'px';
@@ -98,65 +63,147 @@
         // },1000);
     },
     slider : function(startSlide){
-      var scope = this;
-      var wTotal = 0;
-      var $sliderWrapper = document.querySelector('.gallery-zoom-img');
-      var $imgAll = document.querySelectorAll('.gallery-zoom-img img');
-      var $aRight = document.querySelector('.gallery-arrow-right');
-      var $aLeft = document.querySelector('.gallery-arrow-left');
-      var imgWidthArray = [];
-      var calcTranslate = 0;
+        var scope = this;
+        var wTotal = 0;
+        var $sliderWrapper = document.querySelector('.gallery-zoom-img');
+        var $imgAll = document.querySelectorAll('.gallery-zoom-img img');
+        var $arrows = document.querySelector('.gallery-arrow');
+        var $aRight = document.querySelector('.gallery-arrow-right');
+        var $aLeft = document.querySelector('.gallery-arrow-left');
+        var imgWidthArray = [];
+        var calcTranslate = 0;
+        var inTransition = false;      
+        console.log(startSlide);
+        for (var i = 0; i < $imgAll.length; i++) {
+          wTotal += $imgAll[i].offsetWidth + 100;
+          var w = $imgAll[i].offsetWidth;
+          var h = $imgAll[i].offsetHeight;
+          $imgAll[i].classList.remove('active');
+          $imgAll[i].style.opacity = 0.1;
+          imgWidthArray[i] = w;
 
-      document.querySelector('.gallery-zoom-img img[data-item="'+startSlide+'"]').classList.add('active');
+          if (w > h) {
+            $imgAll[i].classList.add('landscape');
+          }else {
+            $imgAll[i].classList.add('portrait');          
+          }
+          
+          // calculate position on init
+          if ( i < startSlide+1 ) {
+              if ( i == startSlide ) {
+                calcTranslate += w/2;
+              }else {
+                calcTranslate += w + 50;
+              }                 
+          }
+        };
 
-      for (var i = 0; i < $imgAll.length; i++) {
-        wTotal += $imgAll[i].offsetWidth + 100;
-        var w = $imgAll[i].offsetWidth;
-        var h = $imgAll[i].offsetHeight;
-        imgWidthArray[i] = w;
-
-        if (w > h) {
-          $imgAll[i].classList.add('landscape');
-        }else {
-          $imgAll[i].classList.add('portrait');          
-        }
+        $sliderWrapper.style.width = wTotal + 'px';
+        console.log(imgWidthArray);      
         
-        // calculate position on init
-        if ( i < startSlide+1 ) {
-          console.log(i, startSlide)
-            if ( i == startSlide ) {
-              calcTranslate += w/2;
-            }else {
-              calcTranslate += w + 50;
-            }                 
+        // Display slider to right position in init
+        TweenLite.set($sliderWrapper, {x: -calcTranslate});
+
+        // Check if first/last slide
+        if (startSlide != ($imgAll.length-1) ) {
+          TweenLite.set($aRight, {x: imgWidthArray[startSlide]/2, display:'block', opacity:1});
+        }      
+        if(startSlide != 0) {
+          // 70 = size div PREV + 15 margin
+          TweenLite.set($aLeft, {x: -(imgWidthArray[startSlide]/2) - 65, display:'block', opacity:1});  
+        }else {
+          TweenLite.set($aLeft, {opacity:0});  
         }
-      };
 
-      $sliderWrapper.style.width = wTotal + 'px';
-      console.log(imgWidthArray);      
-      
-      // Display slider to right position in init
-      TweenLite.set($sliderWrapper, {x: -calcTranslate});
-
-      // Check if first/last slide
-      if (startSlide != ($imgAll.length-1) ) {
-        TweenLite.set($aRight, {x: imgWidthArray[startSlide]/2});
-      }      
-      if(startSlide != 0) {
-        TweenLite.set($aLeft, {x: -(imgWidthArray[startSlide]/2)});  
-      }            
-
-      $aRight.addEventListener('click',function(){
-          // Select Active
-          var currentSlideItem = document.querySelector('.gallery-zoom-img img.active');
-          var currentSlide = parseInt(currentSlideItem.dataset.item);
-          // CALC = half of active img + half img next + margin
-          calcTranslate += (imgWidthArray[currentSlide]/2) + (imgWidthArray[currentSlide+1]/2) + 50;
-
-          TweenLite.to($sliderWrapper, 0.6, {x: -calcTranslate, ease:Power3.easeOut});
-          currentSlideItem.classList.remove('active');
-          document.querySelector('.gallery-zoom-img img[data-item="'+(currentSlide+1)+'"]').classList.add('active');     
+        $('.gallery-zoom-inner').addClass('show');
+        document.querySelector('.gallery-zoom-img img[data-item="'+startSlide+'"]').classList.add('active');
+        TweenLite.set(document.querySelector('.gallery-zoom-img img[data-item="'+startSlide+'"]'), {
+          opacity:1
         });
+
+        $aRight.addEventListener('click',function(){
+
+            if(!inTransition){
+                var scope = this;
+                inTransition = true;
+                // Select Active
+                var currentSlideItem = document.querySelector('.gallery-zoom-img img.active');
+                var currentSlide = parseInt(currentSlideItem.dataset.item);
+
+                TweenLite.set($aLeft, {opacity:0});
+                TweenLite.set($aRight, {opacity:0});
+
+                // CALC = half of active img + half img next + margin
+                calcTranslate += (imgWidthArray[currentSlide]/2) + (imgWidthArray[currentSlide+1]/2) + 50;
+
+                TweenLite.to($sliderWrapper, 0.6, {x: -calcTranslate, ease:Power3.easeOut, onComplete:function(){
+                    inTransition = false;
+                    currentSlideItem.classList.remove('active');
+                    document.querySelector('.gallery-zoom-img img[data-item="'+(currentSlide+1)+'"]').classList.add('active');
+
+                    // Check if first/last slide
+                    if ((currentSlide+1) != ($imgAll.length-1) ) {
+                      TweenLite.set($aRight, {x: imgWidthArray[currentSlide+1]/2, display:'block'});
+                      TweenLite.to($aRight, 0.6, {opacity:1,ease:Power3.ease});
+                    }else {
+                      TweenLite.set($aRight, {opacity:0, display:'none'});
+                    }
+                    
+                    TweenLite.set($aLeft, {x: -(imgWidthArray[currentSlide+1]/2) - 65, display:'block'}); 
+                    TweenLite.to($aLeft, 0.6, {opacity:1,ease:Power3.ease});
+
+                }});
+                
+                TweenLite.to(document.querySelector('.gallery-zoom-img img[data-item="'+currentSlide+'"]'), 0.4, {
+                  opacity:0.3
+                });
+                TweenLite.to(document.querySelector('.gallery-zoom-img img[data-item="'+(currentSlide+1)+'"]'), 0.6, {
+                  opacity:1
+                });          
+            }  
+        });
+
+        $aLeft.addEventListener('click',function(){
+
+            if(!inTransition){
+                var scope = this;
+                inTransition = true;
+                // Select Active
+                var currentSlideItem = document.querySelector('.gallery-zoom-img img.active');
+                var currentSlide = parseInt(currentSlideItem.dataset.item);
+
+                TweenLite.set($aLeft, {opacity:0});
+                TweenLite.set($aRight, {opacity:0});
+
+                // CALC = half of active img + half img next + margin
+                calcTranslate -= (imgWidthArray[currentSlide]/2) + (imgWidthArray[currentSlide-1]/2) + 50;
+                
+                TweenLite.to($sliderWrapper, 0.6, {x: -calcTranslate, ease:Power3.easeOut, onComplete:function(){
+                    inTransition = false;
+                    currentSlideItem.classList.remove('active');
+                    document.querySelector('.gallery-zoom-img img[data-item="'+(currentSlide-1)+'"]').classList.add('active');
+
+                    TweenLite.set($aRight, {x: imgWidthArray[currentSlide-1]/2, display:'block'});
+                    TweenLite.to($aRight, 0.6, {opacity:1,ease:Power3.ease});
+
+                    if((currentSlide-1) != 0) {
+                      // 70 = size div PREV + 15 margin
+                      TweenLite.set($aLeft, {x: -(imgWidthArray[currentSlide-1]/2) - 65, display:'block'}); 
+                      TweenLite.to($aLeft, 0.6, {opacity:1,ease:Power3.ease}); 
+                    }else {
+                      TweenLite.set($aLeft, {opacity:0, display:'none'});  
+                    }                  
+                }});
+                
+                TweenLite.to(document.querySelector('.gallery-zoom-img img[data-item="'+currentSlide+'"]'), 0.4, {
+                  opacity:0.3
+                });
+                TweenLite.to(document.querySelector('.gallery-zoom-img img[data-item="'+(currentSlide-1)+'"]'), 0.6, {
+                  opacity:1
+                });          
+            }  
+        });
+        
     }
     });
 })(window);

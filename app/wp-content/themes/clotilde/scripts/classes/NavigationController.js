@@ -199,7 +199,7 @@
 
             function imageReady() {
                 $h = $(window).height();
-                $('.full-vertical').css({height: $h-43, position:'relative'});
+                $('.full-vertical').css({height: $h+2, position:'relative'});
                 // $('div.scroll').css({lineHeight: $h+'px'});
                 // CLO.config.itemSize = $('div.scroll').length;
                 // // var paginationLength = $('#pagination l').length;

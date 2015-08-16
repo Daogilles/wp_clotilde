@@ -697,6 +697,7 @@ button:focus {
 
 #home {
   background: url(../img/bg-home.jpg) center center no-repeat;
+  background-size: 100%;
   display: block; }
   #home h1, #home h2 {
     left: 50%;
@@ -706,7 +707,7 @@ button:focus {
   #home h1 {
     height: 50px;
     margin-left: -310px;
-    margin-top: -190px;
+    margin-top: -250px;
     width: 620px; }
   #home h2 {
     height: 25px;
@@ -819,30 +820,70 @@ button:focus {
     opacity: 1;
     visibility: visible; }
   .gallery-img .gallery-img-inner {
-    padding: 20px 25px;
-    -webkit-transform: scale(1);
-    -moz-transform: scale(1);
-    -ms-transform: scale(1);
-    -o-transform: scale(1);
-    transform: scale(1);
-    -webkit-transition: all 300ms ease, false;
-    -moz-transition: all 300ms ease, false;
-    -ms-transition: all 300ms ease, false;
-    -o-transition: all 300ms ease, false;
-    transition: all 300ms ease, false; }
+    padding: 20px 25px; }
     .gallery-img .gallery-img-inner img {
       max-width: 100%; }
-    .gallery-img .gallery-img-inner:hover {
-      -webkit-transform: scale(1.1);
-      -moz-transform: scale(1.1);
-      -ms-transform: scale(1.1);
-      -o-transform: scale(1.1);
-      transform: scale(1.1);
-      -webkit-transition: all 300ms ease, false;
-      -moz-transition: all 300ms ease, false;
-      -ms-transition: all 300ms ease, false;
-      -o-transition: all 300ms ease, false;
-      transition: all 300ms ease, false; }
+    .gallery-img .gallery-img-inner .gallery-img-opacity {
+      width: calc(100% - 50px);
+      height: calc(100% - 40px);
+      background-color: black;
+      position: absolute;
+      z-index: 9;
+      top: 20px;
+      left: 25px;
+      opacity: 0;
+      -webkit-transition: all 400ms ease, false;
+      -moz-transition: all 400ms ease, false;
+      -ms-transition: all 400ms ease, false;
+      -o-transition: all 400ms ease, false;
+      transition: all 400ms ease, false; }
+    .gallery-img .gallery-img-inner span.img-see {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      color: #fff;
+      font-size: 24px;
+      font-family: "Futura W01 Light";
+      text-transform: uppercase;
+      margin-left: -55px;
+      margin-top: -12px;
+      width: 111px;
+      height: 25px;
+      opacity: 0;
+      z-index: 10;
+      -webkit-transition: all 400ms ease, false;
+      -moz-transition: all 400ms ease, false;
+      -ms-transition: all 400ms ease, false;
+      -o-transition: all 400ms ease, false;
+      transition: all 400ms ease, false; }
+    .gallery-img .gallery-img-inner span.img-plus {
+      color: #fff;
+      font-size: 40px;
+      font-family: "Futura W01 Light";
+      position: absolute;
+      top: 20px;
+      right: 32px;
+      z-index: 10;
+      opacity: 0;
+      -webkit-transition: all 400ms ease, false;
+      -moz-transition: all 400ms ease, false;
+      -ms-transition: all 400ms ease, false;
+      -o-transition: all 400ms ease, false;
+      transition: all 400ms ease, false; }
+    .gallery-img .gallery-img-inner:hover .gallery-img-opacity {
+      opacity: 0.8;
+      -webkit-transition: all 500ms ease, false;
+      -moz-transition: all 500ms ease, false;
+      -ms-transition: all 500ms ease, false;
+      -o-transition: all 500ms ease, false;
+      transition: all 500ms ease, false; }
+    .gallery-img .gallery-img-inner:hover span {
+      opacity: 1;
+      -webkit-transition: all 1000ms ease, false;
+      -moz-transition: all 1000ms ease, false;
+      -ms-transition: all 1000ms ease, false;
+      -o-transition: all 1000ms ease, false;
+      transition: all 1000ms ease, false; }
 
 .gallery-zoom {
   background-color: #fff;
@@ -859,14 +900,6 @@ button:focus {
   -ms-transition: all 800ms ease, false;
   -o-transition: all 800ms ease, false;
   transition: all 800ms ease, false; }
-  .gallery-zoom.show {
-    opacity: 1;
-    visibility: visible;
-    -webkit-transition: all 800ms ease, false;
-    -moz-transition: all 800ms ease, false;
-    -ms-transition: all 800ms ease, false;
-    -o-transition: all 800ms ease, false;
-    transition: all 800ms ease, false; }
   .gallery-zoom .gallery-zoom-close {
     background: url(../img/close.png);
     cursor: pointer;
@@ -905,26 +938,26 @@ button:focus {
       .gallery-zoom .gallery-zoom-inner .gallery-zoom-img img {
         float: left;
         height: 100%;
-        margin-right: 50px; }
+        margin-right: 50px;
+        opacity: 0.1; }
   .gallery-zoom .gallery-arrow {
     position: absolute;
     top: 0;
     left: 50%;
     width: 0;
     height: 100%; }
-  .gallery-zoom .gallery-arrow-right {
+  .gallery-zoom .gallery-arrow-right, .gallery-zoom .gallery-arrow-left {
     cursor: pointer;
     position: absolute;
     top: 50%;
     left: 0;
-    width: 20px;
+    width: 55px;
     margin-left: 15px;
-    height: 7px; }
-    .gallery-zoom .gallery-arrow-right span {
-      background: url(../img/arrow-black.png) center center no-repeat;
-      display: block;
-      height: 7px;
-      width: 20px; }
+    height: 35px; }
+    .gallery-zoom .gallery-arrow-right span, .gallery-zoom .gallery-arrow-left span {
+      font-size: 24px; }
+  .gallery-zoom .gallery-arrow-left {
+    margin-left: 0; }
 
 .category {
   height: 350px;
@@ -942,36 +975,94 @@ button:focus {
   .category .category-content-bg-visible {
     opacity: 0;
     z-index: 9; }
-  .category #beauty .category-content-bg {
-    background: url(../img/bg-cat-beauty-black.png) left center no-repeat; }
-  .category #beauty .category-content-bg-visible {
-    background: url(../img/bg-cat-beauty.png) left center no-repeat; }
-  .category #fashion .category-content-bg {
-    background: url(../img/bg-fashion-black.png) right center no-repeat; }
-  .category #fashion .category-content-bg-visible {
-    background: url(../img/bg-fashion.png) right center no-repeat; }
-  .category #bodyart .category-content-bg {
-    background: url(../img/bg-body-black.png) right center no-repeat; }
-  .category #bodyart .category-content-bg-visible {
-    background: url(../img/bg-body.png) right center no-repeat; }
-  .category #services .category-content-bg {
-    background: url(../img/bg-services-black.png) left center no-repeat; }
-  .category #services .category-content-bg-visible {
-    background: url(../img/bg-services.png) left center no-repeat; }
+  .category.beauty {
+    background: url(../img/bg-beauty-black.jpg) center center no-repeat;
+    -webkit-transition: all 600ms ease, false;
+    -moz-transition: all 600ms ease, false;
+    -ms-transition: all 600ms ease, false;
+    -o-transition: all 600ms ease, false;
+    transition: all 600ms ease, false; }
+  .category.fashion {
+    background: url(../img/bg-fashion-black.jpg) center center no-repeat;
+    -webkit-transition: all 600ms ease, false;
+    -moz-transition: all 600ms ease, false;
+    -ms-transition: all 600ms ease, false;
+    -o-transition: all 600ms ease, false;
+    transition: all 600ms ease, false; }
+  .category.bodyart {
+    background: url(../img/bg-body-black.jpg) center center no-repeat;
+    -webkit-transition: all 600ms ease, false;
+    -moz-transition: all 600ms ease, false;
+    -ms-transition: all 600ms ease, false;
+    -o-transition: all 600ms ease, false;
+    transition: all 600ms ease, false; }
+  .category.celebrities {
+    background: url(../img/bg-celebrities-black.jpg) center center no-repeat;
+    -webkit-transition: all 600ms ease, false;
+    -moz-transition: all 600ms ease, false;
+    -ms-transition: all 600ms ease, false;
+    -o-transition: all 600ms ease, false;
+    transition: all 600ms ease, false; }
+  .category.services {
+    background: url(../img/bg-services-black.jpg) center center no-repeat;
+    -webkit-transition: all 600ms ease, false;
+    -moz-transition: all 600ms ease, false;
+    -ms-transition: all 600ms ease, false;
+    -o-transition: all 600ms ease, false;
+    transition: all 600ms ease, false; }
+  .category:hover.beauty {
+    background: url(../img/bg-beauty.jpg) center center no-repeat;
+    -webkit-transition: all 800ms ease, false;
+    -moz-transition: all 800ms ease, false;
+    -ms-transition: all 800ms ease, false;
+    -o-transition: all 800ms ease, false;
+    transition: all 800ms ease, false; }
+  .category:hover.fashion {
+    background: url(../img/bg-fashion.jpg) center center no-repeat;
+    -webkit-transition: all 800ms ease, false;
+    -moz-transition: all 800ms ease, false;
+    -ms-transition: all 800ms ease, false;
+    -o-transition: all 800ms ease, false;
+    transition: all 800ms ease, false; }
+  .category:hover.bodyart {
+    background: url(../img/bg-body.jpg) center center no-repeat;
+    -webkit-transition: all 800ms ease, false;
+    -moz-transition: all 800ms ease, false;
+    -ms-transition: all 800ms ease, false;
+    -o-transition: all 800ms ease, false;
+    transition: all 800ms ease, false; }
+  .category:hover.celebrities {
+    background: url(../img/bg-celebrities.jpg) center center no-repeat;
+    -webkit-transition: all 800ms ease, false;
+    -moz-transition: all 800ms ease, false;
+    -ms-transition: all 800ms ease, false;
+    -o-transition: all 800ms ease, false;
+    transition: all 800ms ease, false; }
+  .category:hover.services {
+    background: url(../img/bg-services.jpg) center center no-repeat;
+    -webkit-transition: all 800ms ease, false;
+    -moz-transition: all 800ms ease, false;
+    -ms-transition: all 800ms ease, false;
+    -o-transition: all 800ms ease, false;
+    transition: all 800ms ease, false; }
   .category .fright {
+    background-color: #fff;
     height: 80px;
-    margin-top: -40px;
+    margin-top: -50px;
     position: absolute;
     right: 0;
     top: 50%;
-    z-index: 10; }
+    z-index: 10;
+    padding: 20px; }
   .category .fleft {
+    background-color: #fff;
     height: 80px;
-    margin-top: -40px;
+    margin-top: -50px;
     position: absolute;
     left: 0;
     top: 50%;
-    z-index: 10; }
+    z-index: 10;
+    padding: 20px; }
   .category h1 {
     font-size: 42px;
     letter-spacing: 25px;
@@ -982,19 +1073,6 @@ button:focus {
     text-decoration: none; }
   .category:hover a {
     border-bottom: 1px solid #000; }
-
-.beauty.category {
-  background-color: #d9d9d9;
-  border-top: 2px solid black; }
-
-.fashion.category {
-  background-color: #b5b4b7; }
-
-.bodyart.category {
-  background-color: #ecefeb; }
-
-.services.category {
-  background-color: #b5b4b7; }
 
 .mobile .category h1 {
   font-size: 20px;

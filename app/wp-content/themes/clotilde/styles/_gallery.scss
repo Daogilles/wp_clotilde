@@ -60,14 +60,56 @@
 	}
 	.gallery-img-inner {
 		padding: 20px 25px;
-		@include transform(scale(1));
-		@include transition(all 300ms ease);
 		img {
 			max-width: 100%;
 		}
+		.gallery-img-opacity {
+			width: calc(100% - 50px);
+		    height: calc(100% - 40px);
+		    background-color: black;
+		    position: absolute;
+		    z-index: 9;
+		    top: 20px;
+		    left: 25px;
+		    opacity: 0;
+		    @include transition(all 400ms ease);
+		}
+		span.img-see {
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			color: #fff;
+			font-size: 24px;
+			font-family: $futura-light;
+			text-transform: uppercase;
+			margin-left: -55px;
+			margin-top: -12px;
+			width: 111px;
+			height: 25px;
+			opacity: 0;
+			z-index: 10;
+			@include transition(all 400ms ease);
+		}
+		span.img-plus {
+			color: #fff;
+			font-size: 40px;
+			font-family: $futura-light;
+			position: absolute;
+			top: 20px;
+			right: 32px;
+			z-index: 10;
+			opacity: 0;
+			@include transition(all 400ms ease);
+		}
 		&:hover {
-			@include transform(scale(1.1));
-			@include transition(all 300ms ease);
+			.gallery-img-opacity {
+				opacity: 0.8;
+				@include transition(all 500ms ease);
+			}
+			span {
+				opacity: 1;
+				@include transition(all 1000ms ease);
+			}
 		}
 	}
 }
@@ -86,9 +128,9 @@
 	@include transition(all 800ms ease);
 	&.show{
 		// display: block;
-		opacity: 1;
-		visibility: visible;
-		@include transition(all 800ms ease);
+		// opacity: 1;
+		// visibility: visible;
+		// @include transition(all 800ms ease);
 	}
 	.gallery-zoom-close {
 		background: url(../img/close.png);
@@ -125,6 +167,7 @@
 				float: left;
 				height: 100%;
 				margin-right: 50px;
+				opacity: 0.1;				
 			}
 		}
 		
@@ -136,19 +179,20 @@
 	    width: 0;
 	    height: 100%;
 	}
-	.gallery-arrow-right {
+	.gallery-arrow-right, .gallery-arrow-left {
 		cursor: pointer;
 	    position: absolute;
 	    top: 50%;
 	    left: 0;
-	    width: 20px;
+	    width: 55px;
 	    margin-left: 15px;
-	    height: 7px;
+	    height: 35px;
 		span {
-			background:url(../img/arrow-black.png) center center no-repeat;
-			display: block;
-			height: 7px;
-			width: 20px;
+			font-size: 24px;
 		}
+	}
+	.gallery-arrow-left{
+		margin-left: 0;
+		// margin-right: 15px;
 	}
 }

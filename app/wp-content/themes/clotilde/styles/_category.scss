@@ -4,58 +4,81 @@
 	position: relative;
 	width: 100%;
 	.category-content-bg, .category-content-bg-visible{
-			display: block;
-			height: 100%;
-			position: absolute;
-			width: 100%;
+		display: block;
+		height: 100%;
+		position: absolute;
+		width: 100%;
+	}
+	.category-content-bg{
+		opacity: 1;
+		z-index: 1;
+	}
+	.category-content-bg-visible{
+		opacity: 0;
+		z-index: 9;
+	}
+	&.beauty {
+		background: url(../img/bg-beauty-black.jpg) center center no-repeat;
+		@include transition(all 600ms ease);
+	}
+	&.fashion {
+		background: url(../img/bg-fashion-black.jpg) center center no-repeat;
+		@include transition(all 600ms ease);
+	}
+	&.bodyart {
+		background: url(../img/bg-body-black.jpg) center center no-repeat;
+		@include transition(all 600ms ease);
+	}
+	&.celebrities {
+		background: url(../img/bg-celebrities-black.jpg) center center no-repeat;
+		@include transition(all 600ms ease);
+	}
+	&.services {
+		background: url(../img/bg-services-black.jpg) center center no-repeat;
+		@include transition(all 600ms ease);
+	}
+
+	&:hover {
+		&.beauty {
+			background: url(../img/bg-beauty.jpg) center center no-repeat;
+			@include transition(all 800ms ease);
 		}
-		.category-content-bg{
-			opacity: 1;
-			z-index: 1;
+		&.fashion {
+			background: url(../img/bg-fashion.jpg) center center no-repeat;
+			@include transition(all 800ms ease);
 		}
-		.category-content-bg-visible{
-			opacity: 0;
-			z-index: 9;
-		}	
-	#beauty .category-content-bg{
-		background: url(../img/bg-cat-beauty-black.png) left center no-repeat;
-	}
-	#beauty .category-content-bg-visible{
-		background: url(../img/bg-cat-beauty.png) left center no-repeat;
-	}
-	#fashion .category-content-bg{
-		background: url(../img/bg-fashion-black.png) right center no-repeat;
-	}
-	#fashion .category-content-bg-visible{
-		background: url(../img/bg-fashion.png) right center no-repeat;
-	}
-	#bodyart .category-content-bg{
-		background: url(../img/bg-body-black.png) right center no-repeat;
-	}
-	#bodyart .category-content-bg-visible{
-		background: url(../img/bg-body.png) right center no-repeat;
-	}
-	#services .category-content-bg{
-		background: url(../img/bg-services-black.png) left center no-repeat;
-	}
-	#services .category-content-bg-visible{
-		background: url(../img/bg-services.png) left center no-repeat;
+		&.bodyart {
+			background: url(../img/bg-body.jpg) center center no-repeat;
+			@include transition(all 800ms ease);
+		}
+		&.celebrities {
+			background: url(../img/bg-celebrities.jpg) center center no-repeat;
+			@include transition(all 800ms ease);
+		}
+		&.services {
+			background: url(../img/bg-services.jpg) center center no-repeat;
+			@include transition(all 800ms ease);
+		}
 	}
 	.fright{
+		background-color: #fff;
 		height: 80px;
-		margin-top: -40px;
+		margin-top: -50px;
 		position: absolute;
 		right: 0;
 		top: 50%;
 		z-index: 10;
+		padding: 20px;
 	}
 	.fleft{
+		background-color: #fff;
 		height: 80px;
-		margin-top: -40px;
+		margin-top: -50px;
 		position: absolute;
 		left: 0;
 		top: 50%;
 		z-index: 10;
+		padding:20px;
 	}
 	h1{
 		font-size: 42px;
@@ -73,19 +96,6 @@
 			border-bottom: 1px solid #000;
 		}
 	}
-}
-.beauty.category{
-	background-color: #d9d9d9;
-	border-top: 2px solid black;
-}
-.fashion.category{
-	background-color: #b5b4b7;
-}
-.bodyart.category {
-	background-color: #ecefeb;
-}
-.services.category {
-	background-color: #b5b4b7;
 }
 
 .mobile {

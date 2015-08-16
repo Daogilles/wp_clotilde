@@ -23,7 +23,10 @@ $images = get_field('images');
 				<div class="gallery-img">
 					<div class="gallery-img-inner" data-item="<?php echo $key; ?>">
 						<img src="<?php echo $img['url']; ?>" alt="" />	
-					</div>					
+						<div class="gallery-img-opacity"></div>
+						<span class="img-see">See more</span>
+						<span class="img-plus">+</span>
+					</div>
 				</div>
 			<?php } ?>
 		</div>
@@ -39,10 +42,10 @@ $images = get_field('images');
 			</div>		
 			<div class="gallery-arrow">
 				<div class="gallery-arrow-right">
-					<span></span>
+					<span>NEXT</span>
 				</div>
 				<div class="gallery-arrow-left">
-					<span></span>
+					<span>PREV</span>
 				</div>
 			</div>	
 		</div>
