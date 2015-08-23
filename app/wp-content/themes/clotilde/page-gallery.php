@@ -35,11 +35,16 @@ $images = get_field('images');
 	<div class="gallery-zoom">
 		<div class="gallery-zoom-close"></div>
 		<div class="gallery-zoom-inner">
-			<div class="gallery-zoom-img">
-				<?php foreach ($images as $key => $img) { ?>			
+			<div class="gallery-zoom-img">				
+				<?php foreach ($images as $key => $img) { ?>					
 					<img src="<?php echo $img['url']; ?>" alt="" data-item="<?php echo $key; ?>" />	
-				<?php } ?>
-			</div>		
+				<?php } ?>								
+			</div>
+			<div class="gallery-zoom-descr">
+				<?php foreach ($images as $key => $img) { ?>
+					<span data-item="<?php echo $key; ?>"><?php echo $img['description'] ?></span>
+				<?php } ?>	
+			</div>
 			<div class="gallery-arrow">
 				<div class="gallery-arrow-right">
 					<span>NEXT</span>

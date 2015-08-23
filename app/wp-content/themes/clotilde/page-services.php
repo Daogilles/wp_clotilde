@@ -67,9 +67,9 @@ $my_query = new WP_Query($args);
 	<div id="services-page">
 		<div id="highlight" class="full-vertical" style="background:url('<?php echo $highlight['url']; ?>') center center no-repeat;background-size:cover;z-index:10;">
 			<img src="<?php echo $highlight['url']; ?>" />
+			<span class="scroll-down">Scroll down</span>
 		</div>
-		<a href="#" class="arrow"></a>
-
+	
 		<div class="services-wrapper">
 			<?php if( $my_query->have_posts() ) {
 	  			while ($my_query->have_posts()) : $my_query->the_post(); ?>
@@ -99,7 +99,7 @@ $my_query = new WP_Query($args);
 							<?php
 							$gallerie = get_field('gallerie');
 							foreach ($gallerie as $key => $img) { ?>
-								<div class="service-img" style="background:url(<?php echo $img['url']; ?>) center center no-repeat;background-size:cover;">
+								<div class="service-img" style="background:url(<?php echo $img['url']; ?>) top center no-repeat;background-size:cover;">
 									<img src="<?php echo $img['url'];?>" alt="<?php echo $img['description'];?>" />
 								</div>
 								
@@ -114,8 +114,5 @@ $my_query = new WP_Query($args);
 		</div>
 	</div>
 
-	<div id="services-mobile">
-		<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut quis ligula vel turpis ornare rutrum. Donec mi ex, condimentum et lorem id, malesuada ullamcorper leo. Phasellus fringilla tempus maximus. Nulla semper dapibus ipsum sagittis egestas. Fusce efficitur velit id consectetur molestie. Sed quis nibh ultricies, imperdiet orci non, accumsan eros. Ut consectetur fringilla libero at mattis. Aenean ut justo vel lacus porta dictum molestie vitae nisi. In hac habitasse platea dictumst. Donec et felis sit amet purus vulputate porta nec quis nulla. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.</p>
-	</div>
 
 <?php get_footer(); ?>

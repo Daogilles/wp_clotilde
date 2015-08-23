@@ -1,3 +1,8 @@
+.services-wrapper {
+	position: absolute;
+	width:100%;
+}
+
 .service-article {
 	border-bottom: 1px solid #ccc;
 	height: 350px;
@@ -123,20 +128,23 @@
 	}
 }
 
-#services-mobile {
-	display: none;
-}
 .mobile {
-	#pagination {
-		display: none;
-	}
 	#services-page {
-		display: none;
+		.service-text-wrapper {
+			width: 100%;
+			.service-text-inner {
+				padding:0 10px;
+				h3 {
+					font-size: 18px;
+				}
+				p {
+					font-size: 12px;
+				}
+			}
+		}
+		.service-img-wrapper {
+			display: none;
+		}
 	}
-	#services-mobile {
-		display: block;
-		padding: 20px;
-		position: relative;
-		top: 50px;
-	}
+	
 }

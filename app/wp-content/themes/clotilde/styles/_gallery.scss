@@ -143,6 +143,7 @@
 	}
 	.gallery-zoom-inner {
 		// height: 85%;
+		// height: 75%;
 		height: 60%;
 		display: inline-block;
 		vertical-align: middle;
@@ -167,7 +168,19 @@
 				float: left;
 				height: 100%;
 				margin-right: 50px;
-				opacity: 0.1;				
+				opacity: 0.1;						
+			}
+		}
+		.gallery-zoom-descr {
+			bottom: -70px;
+			left: 50%;
+			position: absolute;
+			span {
+				display: block;
+				height: 40px;
+				float: left;
+				text-align: center;
+				margin-right: 50px;
 			}
 		}
 		
@@ -195,4 +208,16 @@
 		margin-left: 0;
 		// margin-right: 15px;
 	}
+}
+
+@media screen and (max-width: 400px) {
+	.gallery-img {
+		width: 100%;
+	}
+	.gallery-zoom {
+		.gallery-zoom-inner {
+			height: 50%;
+		}
+	}
+
 }

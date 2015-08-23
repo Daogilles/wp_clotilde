@@ -83,9 +83,12 @@
                 $('#loader-pos').css({width: 248})
                 $('#loader-mask').css({width: 248})
             }else{
-                $('#loader-content').append(loaderText);
-                $('#loader-pos').css({width: $('#loader-content').width()})
-                $('#loader-mask').css({width: $('#loader-content').width()})
+                $('#loader-content').append(loaderText).hide();
+                setTimeout(function(){
+                    $('#loader-pos').css({width: $('#loader-content').width()});
+                    $('#loader-mask').css({width: $('#loader-content').width()});
+                    $('#loader-content').show();
+                },200)            
             }          
             // this.$loadContent.css({width:0});
 
@@ -199,41 +202,10 @@
 
             function imageReady() {
                 $h = $(window).height();
-                $('.full-vertical').css({height: $h+2, position:'relative'});
-                // $('div.scroll').css({lineHeight: $h+'px'});
-                // CLO.config.itemSize = $('div.scroll').length;
-                // // var paginationLength = $('#pagination l').length;
-                // // $('#pagination').css({height:(paginationLength*80)+'px', marginTop: -(paginationLength*80/2) })
-                
-                // // if(loaderText == 'beauty' || loaderText == 'fashion' || loaderText == 'celebrities' || loaderText == 'body-art' || loaderText == 'services'){
-                // if(loaderText == 'beauty' || loaderText == 'fashion' || loaderText == 'celebrities' || loaderText == 'body-art'){
-                    
-
-                //     if(!scope.scrollInit){
-                //         scope.initScroll();
-                //     }else{
-                       
-                //         $('#pagination li').each(function(_index) {
-                //             $(this).find('a').click(function(e) {
-                //                 e.preventDefault();
-                //                 e.stopPropagation();
-                //                 CLO.config.activeItem = _index;
-                //                 scope.eventManager.animateContent( _index );
-                //             });
-                //         });
-
-                //         // CLO.$items = $('.scroll').each(function(index) {
-                //         //     index > 0 && TweenMax.set(this, {y : CLO.config.screen.height})
-                //         // });
-                //         // CLO.currentItem = 0;
-                //         // CLO.config.activeItem = 0;
-                //         scope.eventManager.initialize();
-                //         TweenLite.set(CLO.$items[0], {display : 'block', scaleX : 1, scaleY : 1, opacity : 1, y : 0});
-
-                //     }
-                // }
+                $('.full-vertical').css({height: $h, position:'relative'});                             
 
                 if(loaderText == 'services') {
+                    $('.services-wrapper').css({top:$h-2});
                     $('.service-article .service-img-wrapper.slider-container').slick({
                         infinite:true,
                         arrows:false,
@@ -243,13 +215,7 @@
                         autoplaySpeed: 8000,
                         lazyLoad: 'progressive'
                     });
-                }
-                if (loaderText == 'contact') {
-                    TweenMax.set($('.column'), {
-                        'height':($(window).height()-60)+'px',
-                        'line-height': ($(window).height()-60)+'px'
-                    });
-                }
+                }                
                 
                 scope.endLoading();
 

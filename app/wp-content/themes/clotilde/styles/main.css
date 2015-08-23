@@ -481,7 +481,9 @@ table {
     overflow: hidden; }
 
 .mobile #loader #loader-pos {
-  font-size: 40px; }
+  height: 40px;
+  font-size: 40px;
+  margin: -20px auto 0; }
 
 body {
   font-family: "Futura W01 Light";
@@ -707,7 +709,7 @@ button:focus {
   #home h1 {
     height: 50px;
     margin-left: -310px;
-    margin-top: -250px;
+    margin-top: -300px;
     width: 620px; }
   #home h2 {
     height: 25px;
@@ -940,6 +942,16 @@ button:focus {
         height: 100%;
         margin-right: 50px;
         opacity: 0.1; }
+    .gallery-zoom .gallery-zoom-inner .gallery-zoom-descr {
+      bottom: -70px;
+      left: 50%;
+      position: absolute; }
+      .gallery-zoom .gallery-zoom-inner .gallery-zoom-descr span {
+        display: block;
+        height: 40px;
+        float: left;
+        text-align: center;
+        margin-right: 50px; }
   .gallery-zoom .gallery-arrow {
     position: absolute;
     top: 0;
@@ -959,6 +971,12 @@ button:focus {
   .gallery-zoom .gallery-arrow-left {
     margin-left: 0; }
 
+@media screen and (max-width: 400px) {
+  .gallery-img {
+    width: 100%; }
+
+  .gallery-zoom .gallery-zoom-inner {
+    height: 50%; } }
 .category {
   height: 350px;
   overflow: hidden;
@@ -1077,6 +1095,10 @@ button:focus {
 .mobile .category h1 {
   font-size: 20px;
   letter-spacing: 15px; }
+
+.services-wrapper {
+  position: absolute;
+  width: 100%; }
 
 .service-article {
   border-bottom: 1px solid #ccc;
@@ -1217,18 +1239,16 @@ button:focus {
   .service-text-arrow:hover {
     bottom: 18px; }
 
-#services-mobile {
+.mobile #services-page .service-text-wrapper {
+  width: 100%; }
+  .mobile #services-page .service-text-wrapper .service-text-inner {
+    padding: 0 10px; }
+    .mobile #services-page .service-text-wrapper .service-text-inner h3 {
+      font-size: 18px; }
+    .mobile #services-page .service-text-wrapper .service-text-inner p {
+      font-size: 12px; }
+.mobile #services-page .service-img-wrapper {
   display: none; }
-
-.mobile #pagination {
-  display: none; }
-.mobile #services-page {
-  display: none; }
-.mobile #services-mobile {
-  display: block;
-  padding: 20px;
-  position: relative;
-  top: 50px; }
 
 #contact #contact-wrapper {
   border-bottom: 2px solid black;
@@ -1283,18 +1303,17 @@ button:focus {
     height: 580px;
     display: inline-block;
     vertical-align: middle;
-    line-height: normal; }
+    line-height: normal;
+    padding-left: 20px; }
 
-#contact-mobile {
-  display: none; }
-
-.mobile #contact {
-  display: none; }
-.mobile #contact-mobile {
-  display: block;
-  padding: 20px;
-  position: relative;
-  top: 50px; }
+.mobile .contact-form {
+  height: 580px;
+  width: 100%; }
+.mobile .contact-infos {
+  width: 100%; }
+  .mobile .contact-infos .column-wrapper {
+    padding: 0 10px;
+    margin: 0 auto; }
 
 @media screen and (max-width: 960px) {
   #header #nav {
