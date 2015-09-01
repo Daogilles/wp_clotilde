@@ -4,7 +4,7 @@ get_header(); ?>
 <div class="">
     <div id="home" class="full-vertical">
         <h1>Clotilde Sourisseau</h1>
-        <h2>Make up artist Paris</h2>
+        <h2>Makeup artist Paris</h2>
         <a href="#" class="arrow"></a>
     </div>
 
