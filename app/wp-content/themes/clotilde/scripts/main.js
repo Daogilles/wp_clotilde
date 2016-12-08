@@ -49,7 +49,9 @@
         // CLO.config.itemSize = $('div.scroll').length;
         // var paginationLength = $('#pagination li').length;
         // $('#pagination').css({height:(paginationLength*80)+'px', marginTop: -(paginationLength*80/2) })
-        msnry.layout();
+        if (msnry) {
+            msnry.layout();
+        }    
 
         var menuRespHeight = $('#menu_resp ul li').height();
         var windowHeight = $(window).height();

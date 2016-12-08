@@ -204,6 +204,10 @@
                 $h = $(window).height();
                 $('.full-vertical').css({height: $h, position:'relative'});                             
 
+                $('body').removeClass('full');
+
+                $("html, body").animate({ scrollTop: 0 });
+
                 if(loaderText == 'services') {
                     $('.services-wrapper').css({top:$h-2});
                     $('.service-article .service-img-wrapper.slider-container').slick({

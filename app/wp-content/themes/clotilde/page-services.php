@@ -21,47 +21,6 @@ $args=array(
 $my_query = null;
 $my_query = new WP_Query($args);    
 
-
-/*	<ol id="pagination">
-		<li class="no-margin item-active">
-			<div class="active pagination-wrapper">
-				<div class="pagination-wrapper-img">
-					<div style="background:url(<?php echo $highlight['url']; ?>) center center no-repeat;background-size:cover;"></div>
-				</div>
-			</div>
-			<a href="#" class="pagination-bg-black"></a>
-		</li>
-		<?php 
-			$contenu = get_field('contenu');
-			foreach ($contenu as $key => $content) { ?>
-			<li>
-				<div class="pagination-wrapper">
-					<div class="pagination-wrapper-img">
-						<?php foreach ($content['gallerie'] as $img) { ?>
-							<div style="background:url(<?php echo $img['url']; ?>)center center no-repeat;background-size:cover;"></div>
-						<?php } ?>
-					</div>
-				</div>
-				<a href="#" class="pagination-bg-black"></a>
-			</li>
-		<?php } ?>
-	</ol>
-*/
-
-	/*<ol id="pagination">
-		<?php 
-		
-		foreach ($contenu as $key => $content) {
-			$index = $key;
-		}
-		if(!empty($highlight)){
-			$index = $index +2;
-		}else{
-			$index = $index +1;
-		}
-		?>
-		<div id="pag_number">1/<?php echo $index; ?></div>
-	</ol>*/
 ?>
 
 	<div id="services-page">
@@ -85,12 +44,12 @@ $my_query = new WP_Query($args);
 										<p><?php echo $content['texte']?></p>
 									</div>
 									<?php if($key == 0){ ?>
-										<span class="service-text-next service-text-arrow" data-next="<?php echo $key+2; ?>"></span>
+										<span class="service-text-next service-text-arrow" data-next="<?php echo $key+2; ?>">NEXT</span>
 									<?php }else if($key == $len) { ?>
-										<span class="service-text-prev service-text-arrow" data-prev="<?php echo $key; ?>"></span>
+										<span class="service-text-prev service-text-arrow" data-prev="<?php echo $key; ?>">PREV</span>
 									<?php }else{ ?>
-										<span class="service-text-prev service-text-arrow" data-prev="<?php echo $key; ?>"></span>
-										<span class="service-text-next service-text-arrow" data-next="<?php echo $key+2; ?>"></span>
+										<span class="service-text-prev service-text-arrow" data-prev="<?php echo $key; ?>">PREV</span>
+										<span class="service-text-next service-text-arrow" data-next="<?php echo $key+2; ?>">NEXT</span>
 									<?php } ?>
 								</div>
 							<?php } ?>

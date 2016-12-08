@@ -61,7 +61,7 @@
 		}
 	}
 	.fright{
-		background-color: #fff;
+		// background-color: #fff;
 		height: 80px;
 		margin-top: -50px;
 		position: absolute;
@@ -71,7 +71,7 @@
 		padding: 20px;
 	}
 	.fleft{
-		background-color: #fff;
+		// background-color: #fff;
 		height: 80px;
 		margin-top: -50px;
 		position: absolute;
@@ -81,19 +81,21 @@
 		padding:20px;
 	}
 	h1{
+		color: white;
 		font-size: 42px;
+		font-weight: 800;
 		letter-spacing: 25px;
 		margin-bottom: 10px;
 		text-transform: uppercase;
 	}
 	a{
-		color: black;
+		color: white;
 		text-decoration:none;
 	}
 	
 	&:hover {
 		a {
-			border-bottom: 1px solid #000;
+			border-bottom: 1px solid #fff;
 		}
 	}
 }

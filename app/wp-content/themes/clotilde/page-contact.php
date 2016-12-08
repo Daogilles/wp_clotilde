@@ -8,7 +8,7 @@ get_header();
 
 $pagename = get_query_var('pagename');
 
-$title = get_field('title');
+$title = get_field('titre');
 $subtitle = get_field('subtitle');
 $content = get_field('texte');
 
@@ -37,9 +37,14 @@ $content = get_field('texte');
                 <div class="column-wrapper">
                     <h3><?php echo $subtitle; ?></h3>
                     <img src="<?php echo get_template_directory_uri(); ?>/img/profil.jpg" />
+                    <h3><?php echo $title; ?></h3>
                     <div id="texte">
                         <?php echo $content; ?>
                     </div>
+                    <ul class="social">
+                        <li><a href="https://www.facebook.com/Clotilde-Sourisseau-Makeup-Artist-455190067922898" target="_blank"><img src="<?php echo get_template_directory_uri(); ?>/img/facebook.png" alt=""></a></li>
+                        <li><a href="https://instagram.com/clotildemakeupartist/" target="_blank"><img src="<?php echo get_template_directory_uri(); ?>/img/instagram.png" alt=""></a></li>
+                    </ul>
                 </div>
             </div>
         </div>

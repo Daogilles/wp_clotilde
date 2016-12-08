@@ -1,6 +1,8 @@
 #home{
 	background: url(../img/bg-home.jpg) center center no-repeat;
-	background-size:100%;
+	background-size:contain;
+	max-width:1024px;
+	margin:0 auto;
 	display: block;
 	h1, h2{
 		left: 50%;

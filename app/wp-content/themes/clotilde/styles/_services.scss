@@ -107,18 +107,21 @@
 }
 
 .service-text-arrow {
-	background: url('../img/service-arrow.png') center center no-repeat;
-	background-size: 50%;
+	// background: url('../img/service-arrow.png') center center no-repeat;
+	// background-size: 50%;
 	bottom: 20px;
+	color:#000;
 	cursor: pointer;
 	display: block;
+	font-size: 18px;
 	position: absolute;	
-	height: 20px;
+	// height: 20px;
+	line-height:140%;
 	width: 55px;
 	@include transition(all 100ms ease);
 	&.service-text-prev {
 		left: 20px;
-		@include transform(rotate(180deg));
+		// @include transform(rotate(180deg));
 	}
 	&.service-text-next {
 		right: 20px;

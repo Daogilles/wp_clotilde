@@ -57,7 +57,7 @@
         },
         show : function() {
             var $high = document.querySelector('#contact');
-            $high.style.height = (window.innerHeight-43)+'px';
+            $high.style.height = (window.innerHeight-40)+'px';
         }
     });
 })(window);

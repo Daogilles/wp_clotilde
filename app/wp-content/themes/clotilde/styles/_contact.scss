@@ -75,6 +75,15 @@
 			vertical-align: middle;
 			line-height: normal;
 			padding-left:20px;
+
+			img {
+				max-width: 35%;
+			}
+			.social {
+				li {
+					float: left;
+				}
+			}
 		}
 	}
 }

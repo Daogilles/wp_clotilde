@@ -699,7 +699,9 @@ button:focus {
 
 #home {
   background: url(../img/bg-home.jpg) center center no-repeat;
-  background-size: 100%;
+  background-size: contain;
+  max-width: 1024px;
+  margin: 0 auto;
   display: block; }
   #home h1, #home h2 {
     left: 50%;
@@ -822,7 +824,8 @@ button:focus {
     opacity: 1;
     visibility: visible; }
   .gallery-img .gallery-img-inner {
-    padding: 20px 25px; }
+    padding: 5px;
+    text-align: center; }
     .gallery-img .gallery-img-inner img {
       max-width: 100%; }
     .gallery-img .gallery-img-inner .gallery-img-opacity {
@@ -1064,7 +1067,6 @@ button:focus {
     -o-transition: all 800ms ease, false;
     transition: all 800ms ease, false; }
   .category .fright {
-    background-color: #fff;
     height: 80px;
     margin-top: -50px;
     position: absolute;
@@ -1073,7 +1075,6 @@ button:focus {
     z-index: 10;
     padding: 20px; }
   .category .fleft {
-    background-color: #fff;
     height: 80px;
     margin-top: -50px;
     position: absolute;
@@ -1082,15 +1083,17 @@ button:focus {
     z-index: 10;
     padding: 20px; }
   .category h1 {
+    color: white;
     font-size: 42px;
+    font-weight: 800;
     letter-spacing: 25px;
     margin-bottom: 10px;
     text-transform: uppercase; }
   .category a {
-    color: black;
+    color: white;
     text-decoration: none; }
   .category:hover a {
-    border-bottom: 1px solid #000; }
+    border-bottom: 1px solid #fff; }
 
 .mobile .category h1 {
   font-size: 20px;
@@ -1214,13 +1217,13 @@ button:focus {
   transform: scale(0.8) translateX(110%); }
 
 .service-text-arrow {
-  background: url("../img/service-arrow.png") center center no-repeat;
-  background-size: 50%;
   bottom: 20px;
+  color: #000;
   cursor: pointer;
   display: block;
+  font-size: 18px;
   position: absolute;
-  height: 20px;
+  line-height: 140%;
   width: 55px;
   -webkit-transition: all 100ms ease, false;
   -moz-transition: all 100ms ease, false;
@@ -1228,12 +1231,7 @@ button:focus {
   -o-transition: all 100ms ease, false;
   transition: all 100ms ease, false; }
   .service-text-arrow.service-text-prev {
-    left: 20px;
-    -webkit-transform: rotate(180deg);
-    -moz-transform: rotate(180deg);
-    -ms-transform: rotate(180deg);
-    -o-transform: rotate(180deg);
-    transform: rotate(180deg); }
+    left: 20px; }
   .service-text-arrow.service-text-next {
     right: 20px; }
   .service-text-arrow:hover {
@@ -1305,6 +1303,10 @@ button:focus {
     vertical-align: middle;
     line-height: normal;
     padding-left: 20px; }
+    #contact #contact-wrapper .column-wrapper img {
+      max-width: 35%; }
+    #contact #contact-wrapper .column-wrapper .social li {
+      float: left; }
 
 .mobile .contact-form {
   height: 580px;

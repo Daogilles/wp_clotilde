@@ -13,13 +13,7 @@
         var $aRight = document.querySelector('.gallery-arrow-right');
         var $h = $(window).height();
         var $w = $(window).width();
-
-        // if ($h > $w) {
-        //   // PORTRAIT MODE
-        //   $('.gallery-zoom-inner').css({height:'50%'});          
-        // }else {
-        //   $('.gallery-zoom-inner').css({height:'80%'});
-        // }
+        
         $('.gallery-img-inner').on('click', function(){
             var item = parseInt($(this).attr('data-item'));
             $('body').addClass('full');
