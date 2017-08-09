@@ -26,17 +26,17 @@
     $w.on('resize', function() {
         CLO._.wW = $w.width();
         CLO._.wH = $w.height();
-        
+
         _.each(resizableElmts, function(e) {
             e.resize && e.resize(CLO._.wW, CLO._.wH);
         })
 
         $h = $(window).height()+43;
         $('.full-vertical').css({height: $h, position:'relative'});
-        
+
         var $high = document.querySelector('#highlight');
         if($high) $high.style.height = window.innerHeight+2+'px';
-        
+
         var $galZoom = document.querySelector('.gallery-zoom');
         if($galZoom) $galZoom.style.lineHeight = window.innerHeight+'px';
 
@@ -49,9 +49,9 @@
         // CLO.config.itemSize = $('div.scroll').length;
         // var paginationLength = $('#pagination li').length;
         // $('#pagination').css({height:(paginationLength*80)+'px', marginTop: -(paginationLength*80/2) })
-        if (msnry) {
+        if (typeof msnry !== 'undefined') {
             msnry.layout();
-        }    
+        }
 
         var menuRespHeight = $('#menu_resp ul li').height();
         var windowHeight = $(window).height();

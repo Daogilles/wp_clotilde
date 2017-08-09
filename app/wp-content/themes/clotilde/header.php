@@ -69,18 +69,18 @@ if(!isAjax()) {
 <div id="header-wrapper" class="max">
 
     <header id="header" class="wrapper" role="banner">
-        
-        
+
+
         <a href="<?php echo esc_url( home_url( '/' ) ); ?>" id="logo">
             <img src="<?php echo WP_THEME__URL; ?>img/logo@2x.png" alt="Logo Clotilde Sourisseau"/>
         </a>
-        
+
 
 
 		<nav id="nav" class="main-navigation" role="navigation">
 			<?php wp_nav_menu( array( 'menu' => KEY_MAIN_MENU, 'container' => '' ) ); ?>
 		</nav>
-        
+
 	</header>
     <a id="nav_resp">
         <span></span>
